@@ -12,13 +12,14 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
+from selenium.webdriver.common.keys import Keys
 
 driver_path = os.environ['CHROME_WEB_DRIVER']
 local = True
 chrome_options = Options()
-#chrome_options.add_argument('--no-sandbox')
-#chrome_options.add_argument('--headless')
-#chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
 
 
 def scape_app_data(soup: bs4.BeautifulSoup):
@@ -50,7 +51,7 @@ def scape_app_data(soup: bs4.BeautifulSoup):
 def main():
     try:
         driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
-        wait = WebDriverWait(driver, timeout=300)
+        wait = WebDriverWait(driver, timeout=10)
         # get category links
         url = "https://www.intercom.com/app-store/"
         driver.get(url)
@@ -75,7 +76,7 @@ def main():
                 driver.get(link)
                 wait.until(presence_of_element_located((By.CSS_SELECTOR, ".appstore__grid__item .card .appstore__app-card__container")))
                 for app_card in driver.find_elements_by_css_selector(".appstore__grid__item .card .appstore__app-card__container"):
-                    driver.implicitly_wait(0.5)
+                    driver.implicitly_wait(1)
                     app_card.click()
                     wait.until(presence_of_element_located((By.CSS_SELECTOR, "body > div.application__embercom-root.ember-application > div.ds-new__modal__blanket > div > div > div.ds-new__modal__body.o__full-bleed > div.appstore__modal__header > div")))
                     modal = driver.find_element_by_css_selector("body > div.application__embercom-root.ember-application > div.ds-new__modal__blanket > div")
@@ -88,13 +89,15 @@ def main():
                         data["url"] = driver.current_url
                         urls.append(driver.current_url)
                         all_apps_data.append(data)
-                        close_modal_btn = driver.find_element_by_css_selector("body > div.application__embercom-root.ember-application > div.ds-new__modal__blanket > div > div > div.ds-new__modal__close__container > button > svg")
-                        close_modal_btn.click()
-                        if len(all_apps_data) >3: break
+                        # close_modal_btn = driver.find_element_by_css_selector("button.u__pointer-cursor.ds-new__modal__close__icon")
+                        driver.find_element_by_tag_name('body').send_keys(Keys.ESCAPE)
+                        #close_modal_btn.click()
+                        # break # to be removed
             except Exception as e:
+                # driver.close()
                 raise e
                 print("Exception:\t", str(e))
-            if len(all_apps_data) >5: break
+            # break # to be removed
         driver.close()
         with open("apps.csv", "w", encoding="utf-8") as file:
             csv_writer = csv.DictWriter(file, list(all_apps_data[0].keys()))

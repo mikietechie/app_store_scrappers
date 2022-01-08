@@ -11,6 +11,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
+from selenium.common.exceptions import TimeoutException
 
 driver_path = os.environ['CHROME_WEB_DRIVER']
 local = True
@@ -55,44 +56,44 @@ def scape_app_data(soup: bs4.BeautifulSoup):
 def main():
     try:
         driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
-        wait = WebDriverWait(driver, timeout=300)
+        wait = WebDriverWait(driver, timeout=30)
         # get category links
         url = "https://www.freshworks.com/apps/"
         driver.get(url)
         wait.until(presence_of_element_located((By.CSS_SELECTOR, ".sidebar .category .menu .link")))
         driver.implicitly_wait(10)
         category_links = [
-            f'https://www.freshworks.com{a.get_attribute("href")}' for a in driver.find_elements_by_css_selector(".sidebar .category .menu a.link")
+            f'{a.get_attribute("href")}' for a in driver.find_elements_by_css_selector(".sidebar .category .menu a.link")
         ]
         # done with category links
         all_apps_links = []
-        for category_link in category_links:
-            driver.get(category_link)
-            wait.until(presence_of_element_located((By.CSS_SELECTOR, "button.mp-btn.seeAllBtn")))
-            # TODO: add logic to click load more
-            # .mp-btn.seeAllBtn
-            wait.until(presence_of_element_located((By.CSS_SELECTOR, "button.mp-btn.seeAllBtn")))
-            while True:
-                try:
-                    wait.until(presence_of_element_located((By.CSS_SELECTOR, "button.mp-btn.seeAllBtn")))
-                    more_button = driver.find_element_by_css_selector("button.mp-btn.seeAllBtn")
-                    more_button.click()
-                except: break
-            all_apps_links.extend([f'https://www.freshworks.com{a.get_attribute("href")}' for a in driver.find_elements_by_css_selector(".app-grid a.app-card")])
+        try:
+            for category_link in category_links:
+                print(category_link)
+                driver.get(category_link)
+                wait.until(presence_of_element_located((By.CSS_SELECTOR, "a.app-card.el-popover__reference")))
+                while True:
+                    try:
+                        wait.until(presence_of_element_located((By.CSS_SELECTOR, "button.mp-btn.seeAllBtn")))
+                        more_button = driver.find_element_by_css_selector("button.mp-btn.seeAllBtn")
+                        more_button.click()
+                    except: break
+                all_apps_links.extend([f'{a.get_attribute("href")}' for a in driver.find_elements_by_css_selector(".app-grid a.app-card")])
+        except TimeoutException:
+            pass
         all_apps_links = list(set(all_apps_links))
         all_apps_data = []
-        for app_link in all_apps_links:
+        for link in all_apps_links:
             try:
                 driver.get(link)
                 wait.until(presence_of_element_located((By.CSS_SELECTOR, "div.freshworks-verified")))
                 app_data_el = driver.find_element_by_css_selector(".layout .content.body")
                 data = scape_app_data(bs4.BeautifulSoup(app_data_el.get_attribute("innerHTML"), features="html.parser"))
-                try: data["privacy_policy"] = modal.find_element_by_partial_link_text("App Privacy Policy").get_attribute("href")
+                try: data["privacy_policy"] = app_data_el.find_element_by_partial_link_text("App Privacy Policy").get_attribute("href")
                 except: data["privacy_policy"] = None
                 data["url"] = driver.current_url
                 all_apps_data.append(data)
             except Exception as e:
-                raise e
                 print("Exception:\t", str(e))
         driver.close()
         with open("apps.csv", "w", encoding="utf-8") as file:
@@ -105,6 +106,7 @@ def main():
         if isinstance(e, KeyboardInterrupt):
             driver.close()
             exit()
+        driver.close()
         raise e
 
 
