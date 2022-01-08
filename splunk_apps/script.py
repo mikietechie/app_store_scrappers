@@ -63,20 +63,19 @@ def scape_app_data(soup: bs4.BeautifulSoup, url=None):
 def main():
     try:
         driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
-        wait = WebDriverWait(driver, timeout=300)
+        wait = WebDriverWait(driver, timeout=10)
         # get category links
         all_app_links = []
         for url in ["https://splunkbase.splunk.com/archive/apps/#/order/popular/product/all", "https://splunkbase.splunk.com/apps/#/product/all"]:
             driver.get(url)
             wait.until(presence_of_element_located((By.ID, "loadmore")))
-            more = True
-            while more:
+            while True:
                 try:
                     wait.until(presence_of_element_located((By.ID, "loadmore")))
                     more_button = driver.find_element_by_id("loadmore")
                     more_button.click()
                 except:
-                    more = False
+                    break
             all_app_links.extend([f"https://splunkbase.splunk.com{link['href']}" for link in bs4.BeautifulSoup(driver.page_source, features="html.parser").select("sb-app-card-v2-1 a")])
         all_apps_data = []
         for link in all_app_links:

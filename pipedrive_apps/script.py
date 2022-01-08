@@ -16,9 +16,9 @@ from selenium.webdriver.support.expected_conditions import presence_of_element_l
 driver_path = os.environ['CHROME_WEB_DRIVER']
 local = True
 chrome_options = Options()
-#chrome_options.add_argument('--no-sandbox')
-#chrome_options.add_argument('--headless')
-#chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
 
 
 def scape_app_data(soup: bs4.BeautifulSoup):
@@ -50,7 +50,7 @@ def scape_app_data(soup: bs4.BeautifulSoup):
 def main():
     try:
         driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
-        wait = WebDriverWait(driver, timeout=300)
+        wait = WebDriverWait(driver, timeout=10)
         # get category links
         url = "https://www.pipedrive.com/en/marketplace/apps"
         driver.get(url)
@@ -58,9 +58,9 @@ def main():
         paginator_el = driver.find_element_by_css_selector(".styles__Pages-v7p2mr-3.fLLJAP")
         paginator_sp = bs4.BeautifulSoup(paginator_el.get_attribute("innerHTML"), features="html.parser")
         last_page = int(paginator_sp.select("a")[-1].text.strip())
-        soup = bs4.BeautifulSoup(driver.page_source, features="html.parser")
+        # soup = bs4.BeautifulSoup(driver.page_source, features="html.parser")
         page_links = [
-            f"https://www.pipedrive.com/en/marketplace/apps?page={page}&sort=trending" for page in range(1, 26)
+            f"https://www.pipedrive.com/en/marketplace/apps?page={page}&sort=trending" for page in range(1, last_page)
         ]
         print("page links:\t:", page_links)
         all_app_links, urls = [], []
@@ -69,11 +69,11 @@ def main():
             wait.until(presence_of_element_located((By.CSS_SELECTOR, 'article[data-testid="AppCard"] a')))
             app_links = driver.find_elements_by_css_selector('article[data-testid="AppCard"] a')
             all_app_links.extend([app_link.get_attribute("href") for app_link in app_links])
-            break
+            # break
         all_app_links = list(set(all_app_links))
         print("all app links:\t:", all_app_links)
         all_apps_data = []
-        for app_link in all_app_links[:3]:
+        for app_link in all_app_links:
             try:
                 driver.get(app_link)
                 wait.until(presence_of_element_located((By.CSS_SELECTOR, 'article[data-testid="AppCard"] a')))
@@ -92,7 +92,6 @@ def main():
                 data["url"] = app_link
                 all_apps_data.append(data)
             except Exception as e:
-                #raise e
                 print("Exception:\t", str(e))
         driver.close()
         print("all apps data:\t:", all_apps_data)
