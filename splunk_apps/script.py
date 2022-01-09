@@ -69,7 +69,9 @@ def main():
         for url in ["https://splunkbase.splunk.com/archive/apps/#/order/popular/product/all", "https://splunkbase.splunk.com/apps/#/product/all"]:
             driver.get(url)
             wait.until(presence_of_element_located((By.ID, "loadmore")))
-            while True:
+            i = 0
+            while i < 2000:
+                i += 1
                 try:
                     wait.until(presence_of_element_located((By.ID, "loadmore")))
                     # more_button = driver.find_element_by_id("loadmore")

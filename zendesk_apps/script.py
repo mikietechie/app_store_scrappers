@@ -57,7 +57,7 @@ def scape_app_data(soup: bs4.BeautifulSoup):
 def main():
     try:
         driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
-        wait = WebDriverWait(driver, timeout=300)
+        wait = WebDriverWait(driver, timeout=30)
         url = "https://www.zendesk.com/apps/directory/"
         driver.get(url)
         wait.until(presence_of_element_located((By.CSS_SELECTOR, "div.load-more-wrapper button")))
@@ -66,27 +66,36 @@ def main():
                 wait.until(presence_of_element_located((By.CSS_SELECTOR, "div.load-more-wrapper button")))
                 more_button = driver.find_element_by_css_selector("div.load-more-wrapper button")
                 more_button.click()
-            except: break
-        all_app_links = [f'https://www.zendesk.com{a_el.get_attribute("href")}' for a_el in driver.find_elements_by_css_selector("#results .grid .icon-hit-component a.no-text-decoration")]
+            except Exception as e:
+                # driver.close()
+                # raise e
+                break
+        all_app_links = [a_el.get_attribute("href") for a_el in driver.find_elements_by_css_selector("#results .grid .icon-hit-component a.no-text-decoration")]
         all_apps_data = []
         all_app_links = list(set(all_app_links))
-        for link in all_apps_links:
+        wait = WebDriverWait(driver, timeout=10)
+        for link in all_app_links:
             try:
+                print(link)
                 driver.get(link)
                 try:
                     wait.until(presence_of_element_located((By.CSS_SELECTOR, ".detail-item")))
                 except:
-                    wait.until(presence_of_element_located((By.CSS_SELECTOR, "a.review-scroll-trigger")))
-                app_data_html = driver.find_element_by_css_selector(".marketplace-banner").parent
-                app_data = scape_app_data(bs4.BeautifulSoup(app_data_html.get_attribute("innerHTML"), features="html.parser"))
-                try: app_data["contact"] = modal.find_element_by_partial_link_text("Contact Us").get_attribute("href")
+                    try:
+                        wait.until(presence_of_element_located((By.CSS_SELECTOR, "a.review-scroll-trigger")))
+                    except: pass
+                app_data = scape_app_data(bs4.BeautifulSoup(driver.page_source, features="html.parser"))
+                try: app_data["contact"] = driver.find_element_by_partial_link_text("Contact Us").get_attribute("href")
                 except: app_data["contact"] = None
-                try: app_data["website"] = modal.find_element_by_partial_link_text("Website").get_attribute("href")
+                try: app_data["website"] = driver.find_element_by_partial_link_text("Website").get_attribute("href")
                 except: app_data["website"] = None
                 app_data["url"] = link
                 all_apps_data.append(app_data)
+                # break # to be removed
             except Exception as e:
                 print("Exception:\t", str(e))
+                # driver.close()
+                # raise e
         driver.close()
         with open("apps.csv", "w", encoding="utf-8") as file:
             csv_writer = csv.DictWriter(file, list(all_apps_data[0].keys()))
