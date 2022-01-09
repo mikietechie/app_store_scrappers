@@ -104,6 +104,7 @@ def main():
         print("!!! Done With The Job !!!")
     except Exception as e:
         if isinstance(e, KeyboardInterrupt):
+            driver.close()
             exit()
         raise e
 

@@ -49,23 +49,24 @@ def scape_app_data(soup: bs4.BeautifulSoup):
 def main():
     try:
         driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
-        wait = WebDriverWait(driver, timeout=300)
+        wait = WebDriverWait(driver, timeout=10)
         # get category links
         url = "https://extensiongallery.tableau.com/extensions?version=2021.1"
         driver.get(url)
         wait.until(presence_of_element_located((By.CSS_SELECTOR, '.f8znxdr[data-testid="product-list"] a.f58v78i')))
         driver.implicitly_wait(10)
         all_apps_links = [
-            f'https://extensiongallery.tableau.com{a.get_attribute("href")}' for a in driver.find_elements_by_css_selector('.f8znxdr[data-testid="product-list"] a.f58v78i')
+            a.get_attribute("href") for a in driver.find_elements_by_css_selector('.f8znxdr[data-testid="product-list"] a.f58v78i')
         ]
         all_apps_links = list(set(all_apps_links))
         all_apps_data = []
         for link in all_apps_links:
             try:
+                print(link)
                 driver.get(link)
                 wait.until(presence_of_element_located((By.CSS_SELECTOR, 'div[data-testid="detail_description"]')))
-                app_data_el = driver.find_element_by_css_selector(".f1ed5j13")
-                data = scape_app_data(bs4.BeautifulSoup(app_data_el.get_attribute("innerHTML"), features="html.parser"))
+                modal = driver.find_element_by_css_selector(".f1ed5j13")
+                data = scape_app_data(bs4.BeautifulSoup(modal.get_attribute("innerHTML"), features="html.parser"))
                 try: data["developer_website"] = modal.find_element_by_partial_link_text("Developer Website").get_attribute("href")
                 except: data["developer_website"] = None
                 try: data["privacy_policy"] = modal.find_element_by_partial_link_text("Privacy Policy").get_attribute("href")
@@ -73,8 +74,8 @@ def main():
                 try: data["terms_of_service"] = modal.find_element_by_partial_link_text("Terms of Service").get_attribute("href")
                 except: data["terms_of_service"] = None
                 data["url"] = driver.current_url
+                all_apps_data.append(data)
             except Exception as e:
-                raise e
                 print("Exception:\t", str(e))
         driver.close()
         with open("apps.csv", "w", encoding="utf-8") as file:
