@@ -15,9 +15,9 @@ from selenium.webdriver.support.expected_conditions import presence_of_element_l
 driver_path = os.environ['CHROME_WEB_DRIVER']
 local = True
 chrome_options = Options()
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--disable-gpu')
+#chrome_options.add_argument('--no-sandbox')
+#chrome_options.add_argument('--headless')
+#chrome_options.add_argument('--disable-gpu')
 
 
 def scape_app_data(soup: bs4.BeautifulSoup, url=None, logo=None):
@@ -86,9 +86,9 @@ def scape_app_data(soup: bs4.BeautifulSoup, url=None, logo=None):
 def main():
     try:
         driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
-        wait = WebDriverWait(driver, timeout=300)
+        wait = WebDriverWait(driver, timeout=20)
         # get category links
-        url = "https://appexchange.salesforce.com/appxStore?type=App"
+        url = "https://appexchange.salesforce.com/appxStore"
         driver.get(url)
         wait.until(presence_of_element_located((By.ID, "appx-load-more-button-id")))
         categories_nav_link = driver.find_element_by_id("appx-menu-header-text")
@@ -118,31 +118,26 @@ def main():
             # iterate over all app cards and load app links
             try:
                 driver.get(link)
-                wait.until(presence_of_element_located((By.ID, "appx-load-more-button-id")))
-                try:
-                    more = True
-                    while more:
-                        try:
-                            wait.until(presence_of_element_located((By.ID, "appx-load-more-button-id")))
-                            more_button = driver.find_element_by_id("appx-load-more-button-id")
-                            more_button.click()
-                        except:
-                            more = False
-                            break
-                except: print("click error")
+                wait.until(presence_of_element_located((By.CSS_SELECTOR, "a.appx-tile.appx-tile-app.tile-link-click")))
+                while True:
+                    try:
+                        wait.until(presence_of_element_located((By.ID, "appx-load-more-button-id")))
+                        more_button = driver.find_element_by_id("appx-load-more-button-id")
+                        more_button.click()
+                    except:
+                        break
                 for link in driver.find_elements_by_css_selector("li a.appx-tile.appx-tile-app.tile-link-click"):
-                    if link.get_attribute("href") not in all_app_links:
-                        all_app_links.append(url)
+                    all_app_links.append(link.get_attribute("href"))
             except Exception as e:
                 print("Exception:\t", str(e))
+        all_app_links = list(set(all))
         all_apps_data = []
         for i, link in enumerate(all_app_links):
             try:
                 driver.get(link)
                 try:
                     wait.until(presence_of_element_located((By.CSS_SELECTOR, "span.appx-price")))
-                except:
-                    wait.until(presence_of_element_located((By.CSS_SELECTOR, "#AppxListingDetailOverviewTab:listingDetailOverviewTab:appxListingDetailOverviewTabComp:j_id146")))
+                except: pass
                 page_soup = bs4.BeautifulSoup(driver.page_source, features="html.parser")
                 all_apps_data.append(scape_app_data(page_soup, link))
                 print(f"now at {i}!")
