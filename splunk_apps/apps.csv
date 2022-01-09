@@ -1,0 +1,2198 @@
+url,date,time,name,media,release_date,details,version,logo,category,licensing,downloads,installs,headline,rating,reviews_count,developer,website,compatibility
+https://splunkbase.splunk.com/app/2641,2022-01-08,10:15:03 PM,Splunk INTELLIPRETER for Android,"https://prod.cdn.apps.splunk.com/media/public/screenshots/483e4ea4-adca-11e4-8bbb-028ed9769bf5.jpeg,https://prod.cdn.apps.splunk.com/media/public/screenshots/450f044e-adca-11e4-8bbb-028ed9769bf5.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/a8193d0a-ad1d-11e4-b3e7-0668c16fad13.jpeg,https://prod.cdn.apps.splunk.com/media/public/screenshots/9f510414-ad1d-11e4-b1d4-0668c16fad13.jpeg,https://prod.cdn.apps.splunk.com/media/public/screenshots/96f70f70-ad1d-11e4-b1d4-0668c16fad13.jpeg","Feb. 10, 2015","This App ‘Splunk INTELLIPRETER’ is a Trial Version of the Original App created under this solution. For more information and details on the complete solution you can contact us.
+Features
+• Real-time Operational Intelligence for monitoring Release performance across multiple Build Programs
+• Descriptive Analytics per Android Version, Phone Model and Releases
+• Monitoring Dashboard Creation & Customization
+• Error Trends Visualization
+• Issue Drilldown & Android Level Analysis – Feature not supported in Trial Version
+• MTBF Reporting for Release Performance Monitoring
+• Error Categorization Sunburst
+Use Cases
+• Single Point Monitoring of Release performance across multiple Build Programs
+• Itemized Analysis & Root cause based on all the collected records for any Error Reported
+• User Customizable Release Monitoring & Release Comparison
+Differentiators in the market
+
+
+The primary USP of our solution is that:
+a. It can analyse and visualize all the error data from all apps installed on the device
+     AND
+b. It can do this for all the devices that have our APK installed
+
+
+Unlike the competitor tools which target Android App Developers/Companies, The target customers here are OEMs & Operators. It is not restricted to log collection for failures from 1 particular app or one particular user. 
+
+
+Analytics on Collective Data from many devices (multiple Android Versions, Device Models, and releases) is potentially able to give a bigger insight, than accessing individual app's performance provided by competitor tools.
+
+
+Big Data techniques of Data Mining and Searching are not applied to Android Log data till now by any open source or commercial tool at device level. 
+
+
+Key Components
+These are the Device and Server side components required for the Actual / Wi-Fi Router based deployment of this Solution:
+• INTELLIPRETER - Splunk Enterprise SDK based Application
+• Splunk Forwarder
+• ACRA STORAGE - Log & Report Collection Server
+• Crash Reporter - Android APK to be installed on Devices for tapping the Error Instance, Data Collection and Upload
+Contact Us
+This solution is developed by the BIG DATA SOLUTIONS Team within Telecom & Hi-Tech BU at L&T Technology Services. For more information about this App and other work we do in BIG DATA ANALYTICS, please contact us at Splunk.Solutions@lnttechservices.com.",Version 1.1,https://prod.cdn.apps.splunk.com/media/public/icons/bc1aef42-b105-11e4-adcb-02e5d535cba5.png,"IT Operations, Business Analytics",https://cdn.apps.splunk.com/static/misc/eula.html,294,0,splunk,0,0,Ashish Yadav,https://splunkbase.splunk.com/apps/#/author/ashish9433,"Products: Splunk Enterprise
+Categories: IT Operations, Business Analytics
+App Type: App
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/3098,2022-01-08,10:15:04 PM,Dell Networking App for Splunk,"https://prod.cdn.apps.splunk.com/media/public/screenshots/3ec5a554-05b0-11e6-8958-02b493569cfd.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/207d66fc-fab3-11e5-ba31-064614758881.png","April 21, 2016","Step 1: App installation
+1.Install the Dell Networking App on your search head 
+2.Syslog input: Enable an UDP input with a custom port number on your Splunk indexer. Set the sourcetype to dell-networking
+Step 2: Configure your Dell switches
+1.Add the hostname or IP address of the Splunk server to the list of syslog destination targets. For instance:
+Dell(conf)# logging 10.20.30.40 udp 1234
+2.Configure the timestamps of the syslogs to include the switch local time
+Dell(conf)# service timestamps log datetime show-timezone localtime
+Notes:
+Dell Networking App is compatible with Dell switches running OS9 and Splunk 6.3 or later
+You can use the dellsyslog utility to generate custom events from the CLI or from scripts running on switches
+These events will be displayed in the Custom Events dashboard.
+For example, this command will generate a critical syslog:
+$ dellsyslog -s critical ""My monitor error""",Version 1.1,https://prod.cdn.apps.splunk.com/media/public/icons/49c2a2bc-0804-11e6-b3df-06caea5ac9f9.png,IT Operations,https://cdn.apps.splunk.com/static/misc/eula.html,855,0,splunk,4,4,Dell Networking,https://splunkbase.splunk.com/apps/#/author/DellNetworking,"Products: Splunk Enterprise Products: Splunk Enterprise
+Categories: IT Operations
+App Type: App
+Platform: Platform Independent
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/729,2022-01-08,10:15:05 PM,Vector Map,https://prod.cdn.apps.splunk.com/media/public/screenshots/6c320c5c-6900-11e3-b4de-005056ad5c72.png,"Aug. 12, 2011","Usage
+The module expects geoinformation in the form of a ISO3166-2 country code or state code 
+in the specified field in order to plot the results on the map. It's possible to define 
+an optional countField which allows to process already aggregated results.
+Example:
+<module name=""HiddenSearch"" layoutPanel=""panel_row1_col1"" autoRun=""true"">
+    <param name=""search"">sourcetype=access_combined clientip=* | geoip clientip</param>
+    <param name=""earliest"">-24h@h</param>
+    <module name=""VectorMap"">
+        <param name=""mapType"">world</param>
+        <param name=""field"">clientip_country_code</param>
+        <param name=""backgroundColor"">#333333</param>
+    </module>
+</module>
+
+For a list of all possible module parameters see the module reference at your Splunk
+installation once the Add-On is installed.
+http://localhost:8000/modules#Splunk.Module.VectorMap
+Credits
+This module has been created by SPP - http://www.spp.at/
+The map rendering is done by using a slightly modified version of the excellent jVectorMap 
+jQuery plugin: http://jvectormap.owl-hollow.net/",Version 1.0.2,https://prod.cdn.apps.splunk.com/media/public/icons/6c3136e2-6900-11e3-b4de-005056ad5c72.png,Utilities,http://creativecommons.org/licenses/by/3.0/,"1,299",0,splunk,4,2,Siegfried Puchbauer,https://splunkbase.splunk.com/apps/#/author/ziegfried,"Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise
+Categories: Utilities
+App Type: Add-on
+This version of the app (1.0.1) is not available for Splunk Cloud. However, version 1.0.2 of this app is available for Splunk Cloud.
+Platform: Platform Independent
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/27,2022-01-08,10:15:07 PM,Splunk for IMAP,https://prod.cdn.apps.splunk.com/media/public/screenshots/6e1324e8-6900-11e3-b4de-005056ad5c72.jpeg,"Nov. 17, 2009","VERSION 1.16 - UPDATE Aug 03 2009 
+Fixed some compat issues with 4.0GA
+As always, bug me if this release does not work: erik at splunk dot com.
+Documentation Links
+Splunk for IMAP Installation and configuration instructions can be found on the Wiki: http://wiki.splunk.com/Apps:Splunk_for_IMAP",Version 1.20,https://prod.cdn.apps.splunk.com/media/public/icons/6e124dd4-6900-11e3-b4de-005056ad5c72.png,"IT Operations, Utilities",http://creativecommons.org/licenses/by-nc-sa/2.5/,"5,283",0,splunk,5,2,xiang zhou,https://splunkbase.splunk.com/apps/#/author/erik,"Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise
+Categories: IT Operations, Utilities
+App Type: Add-on
+Platform: Linux
+Platform: Linux
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/6273,2022-01-08,10:15:08 PM,Onapsis Vulnerability Add-On for Splunk,,"Jan. 6, 2022","This add-on enables the import of vulnerability data from the Assess product of the Onapsis Platform into Splunk, giving you visibility into the risk within your mission-critical business applications.A separate app called Onapsis Vulnerability Dashboard provides a dashboard with examples for visualizing this data.",Version 1.0.0,https://prod.cdn.apps.splunk.com/media/public/icons/ce0f5b4c-6f31-11ec-a5da-7e9ee488d21e.png,"Security, Fraud & Compliance",https://cdn.apps.splunk.com/static/misc/eula.html,8,0,splunk,0,0,Constantin Biguet,https://splunkbase.splunk.com/apps/#/author/cbiguet,"Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance
+App Type: Add-on
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 4.x"
+https://splunkbase.splunk.com/app/3157,2022-01-08,10:15:09 PM,Box Plot Viz,"https://prod.cdn.apps.splunk.com/media/public/screenshots/f8f947d4-16ca-11e6-bfce-06481e021987.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/5f682b40-16c9-11e6-a104-06481e021987.png","May 10, 2016","Use any data with a numeric field for statistical analysis and a split by field for reporting.
+The search used can produce any number of separate box plots on a single chart, within the the maximum limit of 10,000. It is unlikely someone can get 10,000 box plots on a single dashboard and obtain any value from the display, so this limit is likely sufficient.
+The split by field (Service in the shipped example discussed below) must be the first field returned in the series. The rest of the fields may come in any order as long as the names match the required values: median, min, max, lowerquartile, upperquartile, iqr, lowerwhisker, upperwhisker.
+For example, using the lookup shipped with the app, which looks like:
+Service,Cost
+Consulting,602
+Sales,432
+Manufacturing,1144
+Marketing,814
+The search looks like:
+| inputlookup boxplotexample.csv | stats median(Cost) AS median, min(Cost) AS min, max(Cost) AS max, p25(Cost) AS lowerquartile, p75(Cost) AS upperquartile by Service | fields - count | where isnotnull(median)| eval iqr=upperquartile-lowerquartile | eval lowerwhisker=median-(1.5*iqr) | eval upperwhisker=median+(1.5*iqr)
+The Box Plot Viz app does not, yet, handle outliers. However, in a future version using macros, outlier support will be added due to the complexity of searches involved causing using the app to be overly cumbersome for most users. It is already more than a standard viz requires from the user.
+Thanks go out to:
+
+Kevin Kuchta (http://kevinkuchta.com/) for extensive JavaScript assistance for rebuilding the original app to use pre-calculated inputs rather than raw data from a file.
+Kyle Smith (https://www.aplura.com) for invaluable help both in understanding the complexities and sublteties of creating viz apps and assistance reworking the code to work correctly in the Splunk Custom Visualization framework.
+
+ToDo:
+
+Needs outlier handling.
+Possibly build macros to make the search more friendly.
+Needs user configurable options.",Version 1.0.1,https://prod.cdn.apps.splunk.com/media/public/icons/339063b8-16c7-11e6-845c-06caea5ac9f9.png,"Security, Fraud & Compliance, Business Analytics, Utilities",https://cdn.apps.splunk.com/static/misc/eula.html,"1,586",0,splunk,4,4,Jesse Trucks,https://splunkbase.splunk.com/apps/#/author/jtrucks,"Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance, Business Analytics, Utilities
+App Type: App
+This version of the app (1.0) is not available for Splunk Cloud. However, version 1.0.1 of this app is available for Splunk Cloud.
+Platform: Platform Independent
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/5867,2022-01-08,10:15:11 PM,WHOIS,,"Jan. 8, 2022","This app implements investigative actions that query the whois database
+
+
+Supported Actions Version 2.1.4
+
+
+test connectivity: 
+Validate the configuration for connectivity
+
+
+whois domain: 
+Execute a whois lookup on the given domain
+
+
+whois ip: 
+Execute a whois lookup on the given IP
+
+
+
+
+Supported Actions Version 2.1.3
+
+
+test connectivity: 
+Validate the configuration for connectivity
+
+
+whois domain: 
+Execute a whois lookup on the given domain
+
+
+whois ip: 
+Execute a whois lookup on the given IP
+
+
+
+
+Supported Actions Version 2.1.0
+
+
+test connectivity: 
+Validate the configuration for connectivity
+
+
+whois domain: 
+Execute a whois lookup on the given domain
+
+
+whois ip: 
+Execute a whois lookup on the given IP",Version 2.1.4,https://prod.cdn.apps.splunk.com/media/public/icons/e4e9c6a0-704d-11ec-b2ab-aac0f93bc215.svg,Information,https://www.apache.org/licenses/LICENSE-2.0,86,0,,0,0,,,"Products: Splunk SOAR Products: Splunk SOAR Products: Splunk SOAR
+Categories: Information
+App Type: Connector
+SOAR Versions: 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2"
+https://splunkbase.splunk.com/app/6205,2022-01-08,10:15:12 PM,NeuVector Security,,"Jan. 8, 2022","GitHub
+Download the latest app tarball (neuvector_app.tar.gz) from the neuvector/neuvector-splunk-app repository.
+Splunkbase
+Download the latest app tarball from Splunkbase.
+Splunk Apps Browser
+In the Splunk UI, click on the Apps dropdown, click ""Find More Apps"", then search for NeuVector Splunk App.
+Installation and setup
+Install the app by either uploading the tarball or following the Splunkbase prompts.
+Detailed Installation and Setup documentation available here:
+https://github.com/neuvector/neuvector-splunk-app/blob/main/README.md
+Release notes
+January 06, 2021 - v1.1.0
+
+add east-west network violations",Version 1.1.0,https://prod.cdn.apps.splunk.com/media/public/icons/34996608-701a-11ec-973b-e6c1b0396c73.png,"Security, Fraud & Compliance",https://www.apache.org/licenses/LICENSE-2.0.html,26,0,splunk,0,0,Long Song,https://splunkbase.splunk.com/apps/#/author/neuvector,"Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud
+Categories: Security, Fraud & Compliance
+App Type: App
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/6148,2022-01-08,10:15:13 PM,TA - Custom Logo and Favicon,,"Oct. 18, 2021","TA for Custom Logo and FaviconTechnical add-on to provide custom Logos and Favicons for the Search Heads Frontend pages and Logo for Reports.This technical addon can then be installed to all your Splunk Servers to have a standartisized setup.Once you defined a standard for your Frontend page and PDF printout, you can save the TA locally to your client and install it on all your other servers. If you manage your servers via a deployment server, then deploy the TA via it.",Version 1.0.20211001,https://prod.cdn.apps.splunk.com/media/public/icons/d606638c-3006-11ec-ac6a-328c40a2cfff.png,Utilities,https://creativecommons.org/licenses/by/4.0/legalcode,32,0,splunk,0,0,Patrick Vanreck,https://splunkbase.splunk.com/apps/#/author/patrickvanreck,"Products: Splunk Enterprise
+Categories: Utilities
+App Type: Add-on
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/5827,2022-01-08,10:15:14 PM,NetWitness Logs and Packets,,"Jan. 6, 2022","This app supports investigative actions to collect log and packet captures from RSA NetWitness Logs and Packets
+
+
+Supported Actions Version 2.1.2
+
+
+test connectivity: 
+Validate the credentials provided for connectivity
+
+
+get pcap: 
+Download a packet capture file from Netwitness Logs and Packets and add it to the vault
+
+
+get log: 
+Download a log capture file from Netwitness Logs and Packets and add it to the vault
+
+
+upload file: 
+Upload a feed or parser file to a NetWitness Decoder
+
+
+restart device: 
+Restart the configured device
+
+
+
+
+Supported Actions Version 2.0.3
+
+
+test connectivity: 
+Validate the credentials provided for connectivity
+
+
+get pcap: 
+Download a packet capture file from Netwitness Logs and Packets and add it to the vault
+
+
+get log: 
+Download a log capture file from Netwitness Logs and Packets and add it to the vault
+
+
+upload file: 
+Upload a feed or parser file to a NetWitness Decoder
+
+
+restart device: 
+Restart the configured device",Version 2.1.2,https://prod.cdn.apps.splunk.com/media/public/icons/c43fa750-6ef2-11ec-a50b-22ea93ff7fdb.svg,Investigative,https://www.splunk.com/en_us/legal/splunk-general-terms.html,25,0,,0,0,,,"Products: Splunk SOAR Products: Splunk SOAR
+Categories: Investigative
+App Type: Connector
+SOAR Versions: 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2"
+https://splunkbase.splunk.com/app/2851,2022-01-08,10:15:16 PM,OPC Data Explorer,"https://prod.cdn.apps.splunk.com/media/public/screenshots/e8845fea-48f5-11e5-943a-0aed84b7c0b3.jpeg,https://prod.cdn.apps.splunk.com/media/public/screenshots/b276809a-48f5-11e5-9856-0aed84b7c0b3.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/b1942646-48f5-11e5-b93f-0aed84b7c0b3.png","Nov. 18, 2016",Refer to In app instructions page for complete instructions,Version 2.0.2,https://prod.cdn.apps.splunk.com/media/public/icons/6a8e6f30-0bd8-11e6-b3df-06caea5ac9f9.png,"Utilities, IoT & Industrial Data",https://cdn.apps.splunk.com/static/misc/eula.html,"1,016",0,splunk,5,2,Steve lim,https://splunkbase.splunk.com/apps/#/author/Stevelim,"Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise
+Categories: Utilities, IoT & Industrial Data
+App Type: App
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/3725,2022-01-08,10:15:18 PM,Pwnie Express PwnPulse Technology Add-On,"https://www.youtube.com/embed/xkCNBO6kOb8?autoplay=0&origin=https%3A//splunkbase.splunk.com&enablejsapi=1,https://prod.cdn.apps.splunk.com/media/public/screenshots/201954be-d540-11e7-bc16-06321ef95fa2.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/1dfa6182-d540-11e7-bc16-06321ef95fa2.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/ea80e462-9f7e-11e7-adb8-0a999bd07e5c.png","Nov. 30, 2017","PULSE TECHNOLOGY ADD-ON FOR SPLUNK
+SETUP AND INSTALLATION GUIDE 
+VERSION 0.3.5
+IMPORTANT
+The Pulse API relies on precise time to generate cryptographic signatures. Please ensure your Splunk instance is in sync with Network Time Protocol (NTP) servers.
+MINIMUM REQUIREMENTS
+SPLUNK ENTERPRISE
+* The Pulse Technology Add-on will work with Splunk Enterprise 6.4 and later. If you are not on at least 6.4, you should consult the Splunk knowledgebase for instructions and guidance on upgrading your installation.
+PULSE
+ Contact support@pwnieexpress.com to get a copy of your API keys before you get started
+ Ensure applicable services such as real-time wireless, blue-hydra and/or pwnscan are enabled and configured. Without these, the API will have no data to reference. For help on completing these tasks, please consult the Pulse User Guide 
+INSTALLATION
+
+
+Download the Pwnie Express Technology-Add on from the Splunkbase app store here: https://splunkbase.splunk.com/app/3725
+
+
+In Splunk, select Apps → Manage Apps, then “Install app from file”. 
+
+
+Choose the file you downloaded in Step 1. 
+   Note: You will need to restart Splunk to complete the installation process.
+
+
+Select Configuration → Add-on Settings and input your valid PwnPulse API credentials;
+
+
+Your API URL may vary depending on your region. The default is api.pwnieexpress.net. When complete, click ‘Save’. 
+   Note: You may optionally adjust logging verbosity for troubleshooting/debugging purposes.
+
+
+INPUTS
+If you’ve successfully installed the Pulse Technology Add-On, the default inputs will be enabled.
+HISTORICAL DATA FETCHING
+By default the TA will download the past 7 days of historical data and index it into Splunk. The initial import can take time, but after that, only new changes are fetched.
+  SOURCE TYPES
+The add-on creates several new source types in Splunk. These provide easy-access to Pulse data in search and is helpful to distinguish which API endpoint was utilized. See Appendix 1 for a listing of available fields for each of these endpoints
+Wireless Clients
+    pulse:wireless_clients
+    /v1/clients
+Access Points
+    pulse:wap
+         /v1/access-points
+Bluetooth
+    pulse:bluetooth_devices
+         /v1/bluetooth-devices
+Network Hosts
+    pulse:network_hosts
+         /v1/network-hosts
+Scripts
+    pulse:scripts
+         /v1/scripts
+Task Schedules
+    pulse:tasks
+         /v1/task-schedules
+Alerts
+    pulse:alerts
+         /v1/alerts
+Threats
+    pulse:threats
+         /v1/threats
+SEARCH AND DASHBOARDS
+
+
+After your data is indexed in splunk, you should begin seeing the default dashboard populate.
+The default dashboard is constructed with a few example searches, these are intended to help you construct meaningful displays relevant to your environment. 
+The TA is configured to place API data in the default index. In our examples, that index is ‘main’. Your default index name may vary, you will have to adjust your searches accordingly.  
+NETWORK HOSTS
+Count the number of online/active network hosts across all sensors:
+index=""main"" ""attributes.status""=online sourcetype=""pulse:network_hosts"" | stats count by attributes.mac | stats count
+WIRELESS CLIENTS
+Count the number of online/active wireless clients across all sensors:
+index=""main"" ""attributes.status""=online sourcetype=""pulse:wireless_clients""  | dedup attributes.mac | stats count by attributes.mac| stats count
+WIRELESS ACCESS POINTS
+Count the number of online/active wireless access points across all sensors:
+index=""main"" ""attributes.status""=online sourcetype=""pulse:wap""  | stats count by attributes.bssid | dedup attributes.bssid | stats count
+BLUETOOTH DEVICES
+Count the number of online/active bluetooth devices across all sensors:
+index=main AND sourcetype=""pulse:bluetooth_devices"" AND attributes.status=online | dedup attributes.address | stats count
+ALERTS
+See the top 20 alerts across your pulse environments (defaults to last 24 hours):
+index=""main"" sourcetype=""pulse:alerts"" | top limit=20 ""attributes.rule-name""
+THREATS
+See the top 20 threats across your pulse environments (defaults to last 24 hours):
+index=main sourcetype=pulse:threats ""attributes.active""=true | top limit=20 ""attributes.description""
+TROUBLESHOOTING
+COMMON PITFALLS
+
+
+Network Time Protocol (NTP) is out of sync.
+        Solution: Run ntpdate or start the ntpd service on your Splunk server.
+
+
+Invalid API URL 
+        Solution: Check that your API URL is correct.
+
+
+Invalid API credentials.
+        Solution: Check that your API credentials are correct.
+
+
+LOG LOCATIONS
+
+
+/opt/splunk/var/log/splunk/splunkd.log
+The default Splunk server log. May vary according to your implementation.      
+Typically, any errors that may occur will be captured in this file.
+
+
+/opt/splunk/var/log/splunk/ta_pulse_pwnpulse_api.log
+This is the PwnPulse TA log. You can watch this file to monitor TA API calls in real-time.
+        Tailing this file will be helpful in troubleshooting, should you encounter any issues.
+
+
+SUPPORT
+If you are unable to get these steps to work or if you have additional questions, please contact support@pwnieexpress.com with the “Subject: SPLUNK SUPPORT”
+APPENDIX 1: AVAILABLE API ENDPOINTS
+DESCRIPTION
+This Appendix provides a listing of all available Pulse API endpoints that you can query from the python client[a]. See the Section SOURCE TYPES for full API link descriptions
+pulse:wireless_clients
+Available Fields
+attributes.bssid
+attributes.change-detected-at
+attributes.created-at
+attributes.display-name
+attributes.mac
+attributes.probes{}
+attributes.properties
+attributes.status
+attributes.trust-level
+attributes.updated-at
+attributes.vendor
+relationships.sensor.data.id
+relationships.sensor.data.type
+relationships.sensor.links.related
+pulse:wap (Wireless Access Points)
+Available Fields
+attributes.bssid
+attributes.change-detected-at
+attributes.channel
+attributes.created-at
+attributes.display-name
+attributes.encryption{}
+attributes.essid
+attributes.model-type
+attributes.status
+attributes.trust-level
+attributes.updated-at
+attributes.vendor
+links.self      
+relationships.sensor.data.id
+relationships.sensor.data.type
+relationships.sensor.links.related
+pulse:bluetooth_devices
+Available Fields
+attributes.address
+attributes.appearance
+attributes.change-detected-at
+attributes.class-id
+attributes.classic-class{}
+attributes.classic-channels{}
+attributes.classic-features{}
+attributes.classic-major-class
+attributes.classic-minor-class
+attributes.classic-mode
+attributes.classic-rssi
+attributes.classic-rssi-std-dev
+attributes.classic-service-uuids{}
+attributes.classic-tx-power      
+attributes.company
+attributes.company-type
+attributes.created-at
+attributes.display-name
+attributes.firmware
+attributes.le-address-type
+attributes.le-features{}
+attributes.le-flags{}
+attributes.le-mode
+attributes.le-random-address-type
+attributes.le-rssi
+attributes.le-rssi-std-dev
+attributes.le-service-uuids{}
+attributes.le-tx-power
+attributes.lmp-version
+attributes.manufacturer
+attributes.name
+attributes.status
+attributes.trust-level
+attributes.updated-at
+attributes.vendor      
+links.self
+relationships.sensor.data.id
+relationships.sensor.data.type
+relationships.sensor.links.related
+pulse:network_hosts
+Available Fields
+attributes.change-detected-at
+attributes.created-at
+attributes.display-name
+attributes.hostname
+attributes.ip-addr
+attributes.mac
+attributes.operating-system
+attributes.operating-system.family
+attributes.operating-system.name
+attributes.ports{}.id
+attributes.ports{}.port
+attributes.ports{}.protocol        1
+attributes.ports{}.state
+attributes.status
+attributes.trust-level
+attributes.updated-at
+attributes.vendor
+attributes.vulnerability-summary{}.cve
+attributes.vulnerability-summary{}.cvss_base
+attributes.vulnerability-summary{}.family
+attributes.vulnerability-summary{}.id
+attributes.vulnerability-summary{}.name
+attributes.vulnerability-summary{}.port_id
+links.self
+relationships.sensor.data.id
+relationships.sensor.data.type
+relationships.sensor.links.related
+relationships.vulnerabilities.ids{}
+relationships.vulnerabilities.links.related
+pulse:scripts
+Available Fields
+attributes.body      
+attributes.created-at      
+attributes.default-interval
+attributes.description      
+attributes.display-name      
+attributes.language
+attributes.plugin      
+attributes.updated-at      
+attributes.variables      
+attributes.variables{}      
+links.self
+relationships.task-schedules.ids{} 
+relationships.task-schedules.links.related
+pulse:tasks
+Available Fields
+attributes.created-at
+attributes.enabled
+attributes.first-run-at
+attributes.interval      
+attributes.name
+attributes.next-run-at
+attributes.task-type
+attributes.updated-at
+attributes.variables
+attributes.variables.command
+attributes.variables.lines
+attributes.variables.pwnixfile
+attributes.variables.target
+attributes.variables.variable
+links.self      
+relationships.script.data.id      
+relationships.script.data.type
+relationships.script.links.related
+relationships.sensor-group.data
+relationships.sensor-group.data.id
+relationships.sensor-group.data.type
+relationships.sensor-group.links.related
+pulse:alerts 
+Available Fields
+attributes.change-detected-at
+attributes.description
+attributes.message-target-changed
+attributes.rule-description
+attributes.rule-name
+attributes.rule-severity
+attributes.sensor-name
+attributes.triggered-at
+attributes.updated-at
+links.self      
+relationships.rule.data.id
+relationships.rule.data.type
+relationships.rule.links.related
+relationships.sensor.data
+relationships.sensor.links.related
+relationships.target.data.id
+relationships.target.data.type
+relationships.target.links.related
+pulse:threats
+Available Fields
+attributes.active
+attributes.additional-information
+attributes.description
+attributes.is-default-severity
+attributes.severity-name
+attributes.tagged-at
+attributes.timerange-end
+attributes.timerange-start
+attributes.updated-at
+attributes.version      
+links.self
+relationships.asset.data.id      
+relationships.asset.data.type
+relationships.asset.links.related
+relationships.parent-asset.data.id
+relationships.parent-asset.data.type
+relationships.parent-asset.links.related
+relationships.sensor.data.id
+relationships.sensor.data.type
+relationships.sensor.links.related
+relationships.tag.data.id
+relationships.tag.data.type
+relationships.tag.links.related
+APPENDIX 2: LEGAL & LICENSING
+      * All Pwnie Express products are for legally authorized use only.
+      * By using this product you agree to the terms of the Rapid Focus Security, Inc. EULA: (http://www.pwnieexpress.com/wp-content/uploads/2014/12/Pwnie-Express-EULA-10-13-14-.pdf)
+      * This product contains both open source and proprietary software:
+      * Proprietary software is distributed under the terms of the Rapid Focus Security, Inc. EULA: (http://www.pwnieexpress.com/wp-content/uploads/2014/12/Pwnie-Express-EULA-10-13-14-.pdf)
+      * Open source software is distributed under one or more of the following licenses:
+      * GNU PUBLIC LICENSE
+(https://www.gnu.org/licenses/gpl.html)
+      * BSD-3-CLAUSE LICENSE
+(http://opensource.org/LICENSES/BSD-3-CLAUSE)
+      * OPENSSL TOOLKIT DUAL LICENSE
+(https://www.openssl.org/source/license.html)
+      * APACHE LICENSE, VERSION 2.0
+(https://www.apache.org/licenses/LICENSE-2.0.html)
+         * As with any software application, any downloads/transfers of this software are subject to export controls under the U.S. Commerce Department's Export Administration Regulations (EAR): (http://www.bis.doc.gov/index.php/regulations/export-administration-regulations-ear). By using this software, you certify your complete understanding of and compliance with these regulations",Version 0.3.5,https://prod.cdn.apps.splunk.com/media/public/icons/db158c74-d563-11e7-81cc-02f13bdc2585.png,"Security, Fraud & Compliance, IoT & Industrial Data",https://cdn.apps.splunk.com/static/misc/eula.html,198,0,splunk,5,1,daniel popp,https://splunkbase.splunk.com/apps/#/author/danpopp,"Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance, IoT & Industrial Data
+App Type: Add-on
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/669,2022-01-08,10:15:27 PM,Cisco CDR Reporting and Analytics,"https://www.youtube.com/embed/aJ06zhoYN2k?autoplay=0&origin=https%3A//splunkbase.splunk.com&enablejsapi=1,https://prod.cdn.apps.splunk.com/media/public/screenshots/4ee53dcc-f375-11e8-b292-0621696ba060.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/4d479186-f375-11e8-8192-0621696ba060.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/49fa7534-f375-11e8-8192-0621696ba060.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/46c0ad5c-f375-11e8-8d0a-0621696ba060.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/3a1ccac2-f375-11e8-8d0a-0621696ba060.png","Jan. 7, 2022","Your team can have better day-to-day call flow visibility AND flexible reporting for CallManager.
+
+Quickly see all calls matching any search filters.
+Drilldown at any time to thoroughly investigate a particular call.
+Click your way to pretty much any report over any combination of fields.
+
+That third bullet sounds a little crazy - what about some examples?
+You can:
+
+create reports around concurrent calls and dropped calls.
+create a chart of usage stats about your hunt groups.
+see and share inbound/outbound call stats by agent or department.
+create custom call quality reports and dashboards (MOS, jitter, latency, packet loss).
+build utilization reports by device, device_type, sites, buildings, you name it.
+drilldown at any time from any report, to inspect and sanity check the calls themselves.
+but really, pretty much anything. Try it and see.
+
+What are these, reports? dashboards? alerts?
+Yes. For any of those use cases (and any you can dream up), you can:
+
+create graphs, charts, tables, and even mapping visualizations of various kinds and package them into dashboards if you like.
+set up alerting around anything - dropped calls, quality, volume thresholds.
+share any and all of the above as dashboards with different teams and colleagues.
+automate dashboards you created, to send pdf’s of themselves out every day/week.
+
+What about my report that I don't see listed here?
+Contact us and we'll help you learn how to create what you need for your own “somewhat unusual” CallManager deployment. There are over 200 fields (Check them out here). If you can in principle calculate the thing you need from some number of those fields, in some product or by hand, then we can show how to make the app do it.
+Can I try it out?
+Yes you can download the app from Splunkbase or from this site, and you can get a 90 day trial license string from this site. You can set the whole thing up yourself with your own live data, in about 30 minutes. See our installation and setup docs here.
+Pricing
+The app is priced by the size of your CallManager deployment - specifically the total number of User Licenses and Unassigned Device Licenses that are in use, in CallManager itself. At and below 400 such licenses in use, the cost is only $1,200 per year, but we have a range of customers at all scales from below 100 to above 50,000 licenses in use. Send us a screenshot of the total licenses in use from PLM, or a screenshot per cluster of the ""License Usage Report"" in CM Admin and we can let you know the exact cost.
+Splunk Enterprise - do I need it?
+Yes. The majority of our prospects are already Splunk Enterprise customers, and if this is you, this app will likely add only a negligible additional load to ingest the CallManager data that it needs. If you're not, Sideview is also a Splunk Reseller in North America so we can help you on that side.
+How about Splunk Cloud?
+Yes the app is vetted for Splunk Cloud. We do recommend that you contact us before proceeding though.
+What versions of CUCM are supported?
+CUCM 7.0 up to the current release 12.X
+What are the actual data sources that it uses?
+
+CUCM CDR - through Callmanager's own ""external billing server"" mechanism, CUCM will basically SFTP this data right to Splunk. See our install docs for full steps. 
+CUCM CMR - these are the call quality records, and they come in via the same mechanism
+CUBE CDR - This is an optional secondary data source.  see docs for more details
+Syslog - Although the App's UI does not currently integrate anything from the syslog events yet, we do have documentation on how to pull them in.
+
+However if the data you're hoping to work with isn't in that list, Feel free to contact us anyway!.",Version 6.2.2,https://prod.cdn.apps.splunk.com/media/public/icons/85580642-7003-11ec-973b-e6c1b0396c73.png,IT Operations,https://sideviewapps.com/sideview-trial-internal-use-license-agreement/,"8,451",0,splunk,5,14,Sideview LLC,https://splunkbase.splunk.com/apps/#/author/sideview_llc,"Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud
+Categories: IT Operations
+App Type: App
+This version of the app (6.2.2) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (6.2.1) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (6.0.6) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (6.0.3) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (6.0.2) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (6.0) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (5.3.8) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (5.3.7) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (5.3.4) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (5.3.1) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (5.3) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (5.2.7) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (5.2.6) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+This version of the app (5.2.5) is not available for Splunk Cloud. However, version 6.2 of this app is available for Splunk Cloud.
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/2796,2022-01-08,10:15:29 PM,orgSecure,"https://prod.cdn.apps.splunk.com/media/public/screenshots/8439c0f6-2e48-11e5-ab90-063854888a19.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/7ff86010-2e48-11e5-952d-063854888a19.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/7d01308a-2e48-11e5-a6ef-063854888a19.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/7b63c1c0-2e48-11e5-952d-063854888a19.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/791109a0-2e48-11e5-ab90-063854888a19.png","July 19, 2015","Overview
+About ‘orgSecure’
+
+
+
+Author
+Khyati Majmudar
+
+
+
+
+App Version
+1.0.0.0
+
+
+Vendor Products
+None
+
+
+Has index-time operations
+false
+
+
+Create an index
+yes
+
+
+Implements summarization
+Implements Data Model
+
+
+
+Secure your Organisation from Threats Within
+‘orgSecure’ is an Splunk based Analytics Solution to detect Insider Threats and monitor User Activities. 
+Key Features:
+
+Detect Deviation in User Behaviour based on configurable Baseline Envelop of Historic Data
+Detect Anomalies through User Login/Logoff patterns, Out of Office Hours & Weekend usage.
+Detect Data Breaches through Data Transfer outside organisation through external sources like Wikileaks, File Sharing Sites and emails to public domain
+Detect Disgruntled employees who search for Jobs on Job portals
+Detect Abnormal Asset usage of employees like irregular / suspicious PC access, malicious softwares and abnormal Removable Media usage.
+Monitor User Profile through Hierarchy Analysis and Psychometric Tests
+Monitor User Usage through a unified view of different sources in a single window to get patterns out of the chronological events
+Monitor Critical Assets: PC - Through powerful visualization, understand who uses the PC as well as the activities performed
+Monitor Critical Assets: Files - Through powerful visualization, understand who accesses critical & confidential files, copies or emails them
+
+Support and resources
+Please email us: khyati.ninad@gmail.com for any Questions or Support required. Expected resolution time is 2 days
+INSTALLATION AND CONFIGURATION
+Hardware requirements
+‘orgSecure’ supports all the server platforms in the versions supported by Splunk Enterprise.
+Splunk Enterprise system requirements
+Because this app runs on Splunk Enterprise, all of the Splunk Enterprise system requirements apply.
+Installation steps
+To install and configure this app on your supported platform, follow these steps:
+
+Click Download on this page. The orgSecure.tar.gz installer file downloads to your computer.
+Log into Splunk Web.
+Click Apps > Manage Apps.
+Click Install App from File.
+Upload the orgSecure.tar.gz installer file.
+Restart Splunk.
+
+USER GUIDE
+Key concepts for ‘orgSecure’
+Key to detect Threats is Active Monitoring and Machine Intelligence to detect anomal user behaviour. This can be achieved by creating a Baseline envelop which defines the expected usage of the user. This could be based on either historical data of user or the data of his colleagues of his department. It may be possible that a user may be excessively using Job portals if he is from HR but if envelop is configured correctly, it will not be detected as a abnormal behaviour since it is 'normal' for him.
+In order to achieve this, orgSecure uses complex statistical techniques to create baseline envelops for users which determines their normal usage patterns. Any deviation from the envelops for consecutive periods are reported and should be investigated. Also, comprehensive dashboards and visualizations are provided to actively monitor user and asset activities.
+Key Inputs to the application are:
+
+Email
+Web Activity
+Login Logoff Logs
+Device Access Logs
+Removable Media Usage Logs
+
+You can configure Alerts for any unusual Activities
+Data types
+This app provides the index-time and search-time knowledge for the following types of data:
+Load Data
+Below are the key SourceTypes:
+
+orgsecure:http
+orgsecure:email
+orgsecure:device
+orgsecure:logon
+orgsecure:file
+
+They are mapped as per CERT DARCA Data. Details found at:
+URL : https://www.cert.org/insider-threat/tools/index.cfm
+In case of any different data structure, you will have to modify the dashboard and report queries.
+Lookup
+Sample Lookups are provided under <lookup> folder. This needs to be updated with the details of your organisation. 
+Lookups are:
+
+LDAP: Employee Data of your employees
+JobDomain: enter sites to monitor which are under Job portal category
+SuspiciousDomain: enter sites to monitor which are suspicious and threat to organisation. Like Wikileaks, file sharing sites, etc
+SuspiciousFiles: Enter software names which are to be monitored and which users should not access. E.g. keylogger
+Psychometric: Enter psychometric test results of employees
+
+Configure ‘orgSecure’
+By default, ‘orgSecure’ does not come with any File Inputs. In order to add any Folders to monitor for input logs,
+
+Go to Settings > Data Inputs
+Click on Files and Directories
+You can add Directories to monitor where you can place your financial documents. Save it with respective SourceType
+You can also configure direct import of data as per Splunk best practices
+
+In order to perform baseline analysis, select baseline envelop to be in history (say last 3 months) and select the period under analysis. The respective screens with show the abnormal behaviour as compared to the baseline envelops.
+Example Use Case
+Insider Threats is a major cause of concern for various organisations today. With a robust IT Infrastructure, organisations do fairly well to defend against any external intrusions. However, employees who have access to data from within the organisation remains a threat to confidential and critical data to business. 
+With Advanced Analytics & monitoring, it is possible to detect any anomaly and take appropriate measures in time. orgSecure is an Splunk based Analytics Solution to detect Insider Threats and monitor User Activities. 
+User behaviour, emails, Web Activity, File access and removable media access can be monitored through orgSecure and obtain details on threats and monitor user & asset activities",Version 1.0.0,https://prod.cdn.apps.splunk.com/static/image/default_icon.png,"IT Operations, Security, Fraud & Compliance",https://cdn.apps.splunk.com/static/misc/eula.html,387,0,splunk,0,0,Khyati Majmudar,https://splunkbase.splunk.com/apps/#/author/khyatininad,"Products: Splunk Enterprise
+Categories: IT Operations, Security, Fraud & Compliance
+App Type: App
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/6272,2022-01-08,10:15:31 PM,ForgeRock Identity Cloud,,"Jan. 8, 2022","ForgeRock Identity Cloud App for Splunk captures audit and debug logs from ForgeRock Identity Cloud tenants. A sample dashboard is included to graphically illustrate various captured metrics, for example, authentication events, identity registrations, and top-active users. Sample searches are also included to extend or modify the sample dashboard.DISCLAIMER: The app provided here is provided on an ""as is"" basis, without warranty of any kind, to the fullest extent permitted by law. This is a community app provided independently from ForgeRock.",Version 1.0.2,https://prod.cdn.apps.splunk.com/media/public/icons/e4c0ef86-7067-11ec-89bf-8e102f52faac.png,"Security, Fraud & Compliance",https://cdn.apps.splunk.com/static/misc/eula.html,8,0,splunk,0,0,Jon Knight,https://splunkbase.splunk.com/apps/#/author/jonkenator,"Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance
+App Type: App
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/5804,2022-01-08,10:15:32 PM,Ivanti ITSM,,"Jan. 8, 2022","This app integrates with Ivanti ITSM to provide ingestion and several ticketing actions
+
+
+Supported Actions Version 2.1.2
+
+
+test connectivity: 
+Validate the asset configuration for connectivity using supplied configuration
+
+
+create ticket: 
+Create a new ticket
+
+
+update ticket: 
+Update a ticket
+
+
+run query: 
+Search for a text in resources
+
+
+on poll: 
+Ingest latest tickets
+
+
+get user: 
+Get information about a user
+
+
+list users: 
+List all users on system
+
+
+
+
+Supported Actions Version 2.0.2
+
+
+test connectivity: 
+Validate the asset configuration for connectivity using supplied configuration
+
+
+create ticket: 
+Create a new ticket
+
+
+update ticket: 
+Update a ticket
+
+
+run query: 
+Search for a text in resources
+
+
+on poll: 
+Ingest latest tickets
+
+
+get user: 
+Get information about a user
+
+
+list users: 
+List all users on system",Version 2.1.2,https://prod.cdn.apps.splunk.com/media/public/icons/2e172e06-7050-11ec-a60c-1ae9f207a1bd.svg,Ticketing,https://www.splunk.com/en_us/legal/splunk-general-terms.html,20,0,,0,0,,,"Products: Splunk SOAR Products: Splunk SOAR
+Categories: Ticketing
+App Type: Connector
+SOAR Versions: 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2"
+https://splunkbase.splunk.com/app/6274,2022-01-08,10:15:33 PM,Onapsis Vulnerability Dashboard,,"Jan. 6, 2022",This dashboard gives visualization examples for vulnerability data coming from the Onapsis Platform based on the Assess dashboard.,Version 1.0.0,https://prod.cdn.apps.splunk.com/media/public/icons/49aed17a-6f36-11ec-b2ab-aac0f93bc215.png,"Security, Fraud & Compliance",https://cdn.apps.splunk.com/static/misc/eula.html,9,0,splunk,0,0,Constantin Biguet,https://splunkbase.splunk.com/apps/#/author/cbiguet,"Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance
+App Type: App
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 4.x"
+https://splunkbase.splunk.com/app/3766,2022-01-08,10:15:34 PM,Archived Intrusion App for Splunk,,"Sept. 4, 2019","Intrusion App for Splunk
+Deprecation Warning!!!
+This app has been deprecated. There will be no new development or bug fixes. It has been replaced by the Aplura Intrusion App for Splunk.
+Overview
+Many organizations is IDS/IPS devices and software as their first line of defense against attackers. This app provides Splunk dashboards, forms, and reports which can be used to explore your IDS events across your different sourcetypes.
+To do this, the app relies on the Splunk Common Information Model (CIM) for IDS attack events. This means that the app can report on any authentication data, as long as it has been on-boarded properly, and is available through the Intrusion Detection data model, including network, host, wireless, and application products.
+A note on Splunk Data Model Acceleration and Disk Space
+This app requires data model acceleration, which will use additional disk space. If you are using the Splunk App for Enterprise Security, this is already enabled, and should have been factored into your retention policies. If not, you should review the documentation on data model acceleration, how it uses disk space, and how to plan for it.
+A note on the Splunk Common Information Model
+As mentioned above, the app uses the CIM for authentication events. The CIM allows you to take events from a number of sources or products, and report on them in one cohesive manner, using a common set of names for fields and event types.
+Available Dashboards
+Intrusion Overview
+Provides a starting point for exploring your IDS events. Most panels will drill-down to other pages in the application.
+Attack Source Profile
+A view based on the source of IDS events.
+Attack Destination Profile
+IDS events where attacks are launched against the same destination.
+Attack Signature Profile
+Panels which focus on events which all are from the same identified with the same signature.
+Attack Category Profile
+A view focusing on attacks which fall into the same category (as defined in the events).
+Attack Search
+A form for finding events based on various field values.
+Sourcetypes (Advanced)
+Information about the sourcetypes which are present in the accelerated data.
+Prerequisites
+Splunk Versions
+This app has been tested with Splunk versions 6.6. This app should be installed on the same search head on which the Authentication data model has been accelerated.
+Splunk Common Information Model Add-on
+This app depends on data models included in the Splunk Common Information Model Add-on, specifically the ""Authentication"" data model. Please review the information on installing and using the Splunk Common Information Model Add-on and information on configuring the acceleration on the data model.
+The Splunk Common Information Model Add-on can be downloaded from Splunkbase.
+This app has been tested with versions 4.9 of the CIM add-on. 
+Data model Acceleration on the Intrusion data model
+In order to make the app respond and load quickly, accelerated data models are used to provide summary data. For this data to be available, the Intrusion Detection data model must be accelerated. Information on how to enable acceleration for the Intrusion Detection data model can be found here. The data model must be accelerated for the length of time for which you would like to see reporting.
+Installation
+This app should be installed on a search head where the Intrusion Detection data model has been accelerated. More information on installing or upgrading Splunk apps can be found here.
+Simple Installation Process
+
+Make sure the field extractions and tags on your authentication events are correct.
+Install the Splunk Common Information Model Add-on (skip if you are installing on an ES search head).
+Install the Intrusion App for Splunk.
+Enable accelerations on the Intrusion Detection data model (skip if you are installing on an ES search head).
+Wait for the accelerations to start. After the acceleration searches have run, you should start seeing the dashboards populate.
+
+About support for this app
+Support for this app is provided on a best-effort basis. We have released this app for free, and want to help solve issues, and add features, but we also have day-jobs. The Github repo to report issues can be found here.
+Need help? Use the Splunk community resources! I can be found on many of them:
+
+Splunk Answers
+#splunk on Efnet IRC
+Splunk Slack channel
+
+References
+Splunk Common Information Model
+
+Splunk Common Information Model Add-on Docs
+Splunk Common Information Model add-on Authentication data model
+
+Downloads
+
+Splunk Common Information Model Add-on Download: https://apps.splunk.com/app/1621/
+
+Credits
+This app was created by David Shpritz of Aplura, LLC.
+Release history
+v1.2
+
+Added deprecation warning and link to replacement.
+
+v1.1
+Removed stray stanza in app.conf
+v1.0
+Initial release",Version 1.2.0,https://prod.cdn.apps.splunk.com/media/public/icons/c986c03a-cf4a-11e9-a834-06f420eb5d7a.png,"Security, Fraud & Compliance",https://cdn.apps.splunk.com/static/misc/eula.html,620,0,splunk,0,0,Dave Shpritz,https://splunkbase.splunk.com/apps/#/author/dshpritz,"Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance
+App Type: App
+Platform: Platform Independent
+CIM Versions: 4.x, 3.x
+Platform: Platform Independent
+CIM Versions: 4.x
+Platform: Platform Independent
+CIM Versions: 4.x"
+https://splunkbase.splunk.com/app/3178,2022-01-08,10:15:37 PM,License Usage Dashboard,"https://prod.cdn.apps.splunk.com/media/public/screenshots/351b35e8-f14c-11e8-a655-02125ce0f2bc.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/c452130e-e27d-11e8-949a-06ed2744d60a.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/b6107c22-e27d-11e8-b951-06ed2744d60a.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/a77f235c-e27d-11e8-9319-06ed2744d60a.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/9e4c1538-e27d-11e8-812c-06ed2744d60a.png","Jan. 8, 2022","This app contains a variety of dashboard panel views that provide additional detailed data to supplement Usage Report under System -> Licensing, and the License Usage dashboards under Monitoring Console -> Indexing.Must be installed on a license master system, or search head/s depending on where the _internal index logs are sent, and the _internal index must be allowed in the user's Access Controls -> Roles -> Role name -> Selected search indexes.  See the Setup dashboard, or README file for more instructions.Some of the views are of the total daily license usage in bytes, total daily license usage in GB's, quota usage by pool, percentage usage by pool, quota usage by range icon, license usage by pool in bytes, and views by index, sourcetype, source and client. Included are 5 dashboards and 16 reports.  Dashboards and reports can be modified, or deleted for customization for your environment.",Version 4.7.2,https://prod.cdn.apps.splunk.com/media/public/icons/f77e81cc-7096-11ec-a673-cec0a894a9e3.png,"IT Operations, Utilities",https://cdn.apps.splunk.com/static/misc/eula.html,"6,046",0,splunk,4,6,Dennis Raesner,https://splunkbase.splunk.com/apps/#/author/dwraesner,"Products: Splunk Enterprise, Splunk Cloud
+Categories: IT Operations, Utilities
+App Type: App
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/5399,2022-01-08,10:15:39 PM,Knowledge Object Overview App for Splunk,"https://prod.cdn.apps.splunk.com/media/public/screenshots/e52d8e3a-9fa1-11eb-9f9f-06df50e2960d.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/d9b33348-9fa1-11eb-85b4-064e466dbfd7.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/d357c7ac-9fa1-11eb-9450-0a44f07378b7.png","Jan. 6, 2022","Known issues:
+
+The savedsearches.conf Stanza [KOM_All_Assets] search should start ""| union kom_all_assets"" NOT kom_all_assets
+
+The macros.conf Stanza [kom_all_assets] should not contain the ""| union "" SPL command on line 1.
+
+
+This app is impacted by a SPL xpath command bug (SPL-195545) found in 8.0.x.  As a workaround you can switch this app to use python.version = python 2 for the purpose of your testing.  Or to be more targeted you can add a command.conf into splunk_kom/local with the following stanza.
+
+
+[xpath]
+filename = xpath.py
+streaming = true
+retainsevents = true
+overrides_timeorder = false
+supports_rawargs = true
+is_risky = false
+python.version = python2
+This will simply force the xpath command to run under python 2",Version 1.0.27,https://prod.cdn.apps.splunk.com/media/public/icons/f7a5b41c-6efd-11ec-bca3-ba16518c51da.png,Utilities,https://www.splunk.com/en_us/legal/splunk-general-terms.html,674,0,splunk,3,7,Splunk Works,https://splunkbase.splunk.com/apps/#/author/splunklabs,"Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud
+Categories: Utilities
+App Type: App
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/3462,2022-01-08,10:15:41 PM,Splunk UBA Software Update,,"Jan. 6, 2022",For information on Installation and Release Notes see: http://docs.splunk.com/Documentation/UBA,Version 5.0.5.1,https://prod.cdn.apps.splunk.com/media/public/icons/UBA_logo.png,"Security, Fraud & Compliance",https://www.splunk.com/en_us/legal/splunk-software-license-agreement.html,"3,401",0,splunk,4,3,Splunk Inc.,https://splunkbase.splunk.com/apps/#/author/Splunk,"
+Categories: Security, Fraud & Compliance
+App Type: App
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/2804,2022-01-08,10:15:42 PM,Risk Manager,"https://prod.cdn.apps.splunk.com/media/public/screenshots/b4156f6a-33d3-11e5-abd1-02e61222c923.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/b0a5ae26-33d3-11e5-9906-02e61222c923.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/abeefe46-33d3-11e5-abd1-02e61222c923.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/a827f5e2-33d3-11e5-abd1-02e61222c923.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/9a8dd76c-33d3-11e5-9906-02e61222c923.png","July 26, 2015","See README.md
+Full documentation at:
+https://github.com/my2ndhead/risk_manager/wiki
+Note: Needs TA-risk_manager to work: https://splunkbase.splunk.com/app/2803/",Version 1.0.1,https://prod.cdn.apps.splunk.com/media/public/icons/205729e8-33d4-11e5-b68a-02e61222c923.png,"IT Operations, Security, Fraud & Compliance",http://creativecommons.org/licenses/by-nc-sa/4.0/,434,0,splunk,4,2,Risk Manager,https://splunkbase.splunk.com/apps/#/author/risk_manager,"Products: Splunk Enterprise
+Categories: IT Operations, Security, Fraud & Compliance
+App Type: App
+Platform: Platform Independent
+CIM Versions: 4.x"
+https://splunkbase.splunk.com/app/3746,2022-01-08,10:15:43 PM,TA for Code42 App For Splunk,,"Feb. 18, 2020",Technical Add-On for Code42 App For Splunk. Please visit https://splunkbase.splunk.com/app/3736/ for documentation.This TA is intended for installation on the Indexing tier of a distributed Splunk environment. Do not install along side other Code42 Splunk Apps.,Version 3.0.12,https://prod.cdn.apps.splunk.com/media/public/icons/2ea284c8-5276-11ea-b511-0a0c22d19a26.png,"Security, Fraud & Compliance, Business Analytics",https://cdn.apps.splunk.com/static/misc/eula.html,"2,326",0,splunk,3,2,Code42 Partners,https://splunkbase.splunk.com/apps/#/author/code42eco,"Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance, Business Analytics
+App Type: Add-on
+This version of the app (3.0.7) is not available for Splunk Cloud. However, version 3.0.12 of this app is available for Splunk Cloud.
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 4.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 4.x
+Platform: Platform Independent
+CIM Versions: 4.x
+Platform: Platform Independent
+CIM Versions: 4.x
+Platform: Platform Independent
+CIM Versions: 4.x
+Platform: Platform Independent
+CIM Versions: 4.x"
+https://splunkbase.splunk.com/app/5643,2022-01-08,10:15:46 PM,Silent Push Threat Intelligence,https://prod.cdn.apps.splunk.com/media/public/screenshots/658b0436-6fd1-11ec-981a-e685887a0d7e.png,"Jan. 7, 2022","The Silent Push Threat Intelligence - Splunk Add-On developed by Silent Push intended to collect observables from Silent Push App (Silent Push ) directly into your Splunk Enterprise instance. The data will be collected accordingly to the Filter Profile Schedulers created in Silent Push App. There’s also a video tutorial you can watch at: https://www.silentpush.com/blog/threat-intelligence-app-for-splunk-now-availableIf you need to dive into details, check our manual: https://silentpush.atlassian.net/wiki/spaces/CSM/pages/803209217/Splunk+Plugin+-+Silent+Push+Events+Collector",Version 1.1.8,https://prod.cdn.apps.splunk.com/media/public/icons/a12ace32-6fcb-11ec-88d2-ee552097e04e.png,"Security, Fraud & Compliance",https://cdn.apps.splunk.com/static/misc/eula.html,217,0,splunk,5,3,Ralph Casey,https://splunkbase.splunk.com/apps/#/author/rcasey_silentpush,"Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance
+App Type: Add-on
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 3.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 3.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 3.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 3.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 3.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 3.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 3.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 3.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 3.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/3262,2022-01-08,10:15:47 PM,Tegile IntelliFlash App for Splunk,https://prod.cdn.apps.splunk.com/media/public/screenshots/f7c755b8-601c-11e6-a95e-02ab88eb32db.png,"April 12, 2017","The Tegile IntelliFlash App for Splunk allows a Splunk administrator to retrieve relevant data from Tegile storage arrays. The type of data retrieved includes: array controllers, pools, volumes, mappings, etc.  This data is displayed in the Splunk UI and provides the administrator with a single-pane-of-glass for one or multiple Tegile storage arrays.",Version 1.2.0,https://prod.cdn.apps.splunk.com/media/public/icons/5ac57922-1f2d-11e7-9286-02f13bdc2585.png,"IT Operations, Business Analytics",https://cdn.apps.splunk.com/static/misc/eula.html,245,0,splunk,5,4,Ramesh Chitor,https://splunkbase.splunk.com/apps/#/author/rchitor,"Products: Splunk Enterprise Products: Splunk Enterprise
+Categories: IT Operations, Business Analytics
+App Type: App
+Platform: Platform Independent
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/4060,2022-01-08,10:15:49 PM,Tenable Add-On for Splunk,"https://prod.cdn.apps.splunk.com/media/public/screenshots/f7e0630a-7357-11e8-a8d5-02edf58f4712.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/f574a2de-7357-11e8-a88a-02edf58f4712.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/ebddb33c-7357-11e8-99f1-02edf58f4712.png","Jan. 8, 2022","Splunk Cloud Support
+If a version of our app is not yet supported on Splunk Cloud, you can request it be approved following this process: http://dev.splunk.com/view/app-cert/SP-CAAAE85 
+Unfortunately we can no longer request this.  
+Documentation
+Tenable How to guide
+Tenable Support",Version 5.2.3,https://prod.cdn.apps.splunk.com/media/public/icons/0f08e390-701b-11ec-b853-4a92cbcbefe8.png,"Security, Fraud & Compliance",https://cdn.apps.splunk.com/static/misc/eula.html,"21,326",0,splunk,3,14,"Tenable, Inc.",https://splunkbase.splunk.com/apps/#/author/nkeuning,"Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance
+App Type: Add-on
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 4.x"
+https://splunkbase.splunk.com/app/5829,2022-01-08,10:15:51 PM,EWS for Office 365,,"Jan. 8, 2022","This app ingests emails from a mailbox in addition to supporting various investigative and containment actions on an Office 365 service
+
+
+Supported Actions Version 2.8.2
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+run query: 
+Search emails
+
+
+delete email: 
+Delete emails
+
+
+copy email: 
+Copy an email to a folder
+
+
+move email: 
+Move an email to a folder
+
+
+block sender: 
+Add the sender email into the block list
+
+
+unblock sender: 
+Remove the sender email from the block list
+
+
+get email: 
+Get an email from the server
+
+
+list addresses: 
+Get the email addresses that make up a Distribution List
+
+
+lookup email: 
+Resolve an Alias name or email address, into mailboxes
+
+
+update email: 
+Update an email on the server
+
+
+on poll: 
+Action handler for the ingest functionality
+
+
+
+
+Supported Actions Version 2.7.3
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+run query: 
+Search emails
+
+
+delete email: 
+Delete emails
+
+
+copy email: 
+Copy an email to a folder
+
+
+move email: 
+Move an email to a folder
+
+
+block sender: 
+Add the sender email into the block list
+
+
+unblock sender: 
+Remove the sender email from the block list
+
+
+get email: 
+Get an email from the server
+
+
+list addresses: 
+Get the email addresses that make up a Distribution List
+
+
+lookup email: 
+Resolve an Alias name or email address, into mailboxes
+
+
+update email: 
+Update an email on the server
+
+
+on poll: 
+Action handler for the ingest functionality
+
+
+
+
+Supported Actions Version 2.6.7
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+run query: 
+Search emails
+
+
+delete email: 
+Delete emails
+
+
+copy email: 
+Copy an email to a folder
+
+
+move email: 
+Move an email to a folder
+
+
+block sender: 
+Add the sender email into the block list
+
+
+unblock sender: 
+Remove the sender email from the block list
+
+
+get email: 
+Get an email from the server
+
+
+list addresses: 
+Get the email addresses that make up a Distribution List
+
+
+lookup email: 
+Resolve an Alias name or email address, into mailboxes
+
+
+update email: 
+Update an email on the server
+
+
+on poll: 
+Action handler for the ingest functionality
+
+
+
+
+Supported Actions Version 2.5.11
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+run query: 
+Search emails
+
+
+delete email: 
+Delete emails
+
+
+copy email: 
+Copy an email to a folder
+
+
+move email: 
+Move an email to a folder
+
+
+block sender: 
+Add the sender email into the block list
+
+
+unblock sender: 
+Remove the sender email from the block list
+
+
+get email: 
+Get an email from the server
+
+
+list addresses: 
+Get the email addresses that make up a Distribution List
+
+
+lookup email: 
+Resolve an Alias name or email address, into mailboxes
+
+
+update email: 
+Update an email on the server
+
+
+on poll: 
+Action handler for the ingest functionality
+
+
+
+
+Supported Actions Version 2.5.9
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+run query: 
+Search emails
+
+
+delete email: 
+Delete emails
+
+
+copy email: 
+Copy an email to a folder
+
+
+move email: 
+Move an email to a folder
+
+
+block sender: 
+Add the sender email into the block list
+
+
+unblock sender: 
+Remove the sender email from the block list
+
+
+get email: 
+Get an email from the server
+
+
+list addresses: 
+Get the email addresses that make up a Distribution List
+
+
+lookup email: 
+Resolve an Alias name or email address, into mailboxes
+
+
+update email: 
+Update an email on the server
+
+
+on poll: 
+Action handler for the ingest functionality
+
+
+
+
+Supported Actions Version 2.4.11
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+run query: 
+Search emails
+
+
+delete email: 
+Delete emails
+
+
+copy email: 
+Copy an email to a folder
+
+
+move email: 
+Move an email to a folder
+
+
+block sender: 
+Add the sender email into the block list
+
+
+unblock sender: 
+Remove the sender email from the block list
+
+
+get email: 
+Get an email from the server
+
+
+list addresses: 
+Get the email addresses that make up a Distribution List
+
+
+lookup email: 
+Resolve an Alias name or email address, into mailboxes
+
+
+update email: 
+Update an email on the server
+
+
+on poll: 
+Action handler for the ingest functionality
+
+
+
+
+Supported Actions Version 2.4.3
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+run query: 
+Search emails
+
+
+delete email: 
+Delete emails
+
+
+copy email: 
+Copy an email to a folder
+
+
+move email: 
+Move an email to a folder
+
+
+block sender: 
+Add the sender email into the block list
+
+
+unblock sender: 
+Remove the sender email from the block list
+
+
+get email: 
+Get an email from the server
+
+
+list addresses: 
+Get the email addresses that make up a Distribution List
+
+
+lookup email: 
+Resolve an Alias name or email address, into mailboxes
+
+
+update email: 
+Update an email on the server
+
+
+on poll: 
+Action handler for the ingest functionality
+
+
+
+
+Supported Actions Version 2.3.3
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+run query: 
+Search emails
+
+
+delete email: 
+Delete emails
+
+
+copy email: 
+Copy an email to a folder
+
+
+move email: 
+Move an email to a folder
+
+
+block sender: 
+Add the sender email into the block list
+
+
+unblock sender: 
+Remove the sender email from the block list
+
+
+get email: 
+Get an email from the server
+
+
+list addresses: 
+Get the email addresses that make up a Distribution List
+
+
+lookup email: 
+Resolve an Alias name or email address, into mailboxes
+
+
+update email: 
+Update an email on the server
+
+
+on poll: 
+Action handler for the ingest functionality
+
+
+
+
+Supported Actions Version 2.2.3
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+run query: 
+Search emails
+
+
+delete email: 
+Delete emails
+
+
+copy email: 
+Copy an email to a folder
+
+
+move email: 
+Move an email to a folder
+
+
+block sender: 
+Add the sender email into the block list
+
+
+unblock sender: 
+Remove the sender email from the block list
+
+
+get email: 
+Get an email from the server
+
+
+list addresses: 
+Get the email addresses that make up a Distribution List
+
+
+lookup email: 
+Resolve an Alias name or email address, into mailboxes
+
+
+update email: 
+Update an email on the server
+
+
+on poll: 
+Action handler for the ingest functionality",Version 2.8.2,https://prod.cdn.apps.splunk.com/media/public/icons/4c92bad8-7075-11ec-acc7-8afa248ebddc.svg,Email,https://www.splunk.com/en_us/legal/splunk-general-terms.html,84,0,,0,0,,,"Products: Splunk SOAR Products: Splunk SOAR Products: Splunk SOAR Products: Splunk SOAR Products: Splunk SOAR Products: Splunk SOAR Products: Splunk SOAR Products: Splunk SOAR Products: Splunk SOAR
+Categories: Email
+App Type: Connector
+SOAR Versions: 5.0, 5.1, 5.2
+SOAR Versions: 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2"
+https://splunkbase.splunk.com/app/972,2022-01-08,10:15:54 PM,Security Onion App for Splunk software,,"Jan. 1, 2013","Security Onion:
+Security Onion (http://securityonion.blogspot.com/) is a Linux distribution for intrusion detection and network security monitoring. Security Onion for Splunk is designed to run on a Security Onion server, providing an alternative method for correlating events and incorporating field extractions and reporting for Sguil, Bro IDS and OSSEC. (For a detailed description of the application with screenshots: http://eyeis.net/2012/04/splunking-the-onion/.)
+Overview:
+Splunk for Security Onion provides several dashboards and search interfaces for correlating Sguil, OSSEC and Bro IDS log events.
+Required Splunk Apps:
+
+Sideview Utils - http://splunk-base.splunk.com/apps/36405/sideview-utils 
+Splunk for OSSEC - Splunk v4 version -http://splunk-base.splunk.com/apps/22285/splunk-for-ossec-splunk-v4-version 
+Geo Location Lookup Script (powered by MAXMIND) - http://splunk-base.splunk.com/apps/22282/geo-location-lookup-script-powered-by-maxmind 
+Google Maps - http://splunk-base.splunk.com/apps/22365/google-maps 
+Splunk Visualizations - http://splunk-base.splunk.com/apps/22283/splunk-visualizations
+
+Prerequisites:
+A Security Onion server and a Splunk 5.x installation. (Note: when installing Splunk on a Security Onion system there will likely be a port conflict for the Splunk web server. Port 81 as an alternate port should be a safe alternative.)
+Setup Splunk:
+Download from www.splunk.com. Install via terminal command:
+sudo dpkg -i splunk-5.*.deb
+When install completes, we need to start Splunk for the first time:
+cd /opt/splunk/bin
+sudo ./splunk start
+After accepting the agreement, you'll have to pick an alternate port for the Splunk web interface since the default is in use. You'll see the following and when prompted to change, choose yes, then specify port 81:
+Checking prerequisites...  
+Checking http port [8000](http://splunkbase.splunk.com/wiki/8000): already bound  
+ERROR: The http port [8000](http://splunkbase.splunk.com/wiki/8000) is already bound. Splunk needs to use this port.  
+Would you like to change ports? [y/n](http://splunkbase.splunk.com/wiki/y:n): y  
+Enter a new http port: 81  
+Setting http to port: 81  
+Checking http port [81](http://splunkbase.splunk.com/wiki/81): open  
+Checking mgmt port [8089](http://splunkbase.splunk.com/wiki/8089): open  
+Checking configuration... Done.
+
+Splunk's built-in way to run at boot time is (as root): $SPLUNK_HOME/bin/splunk enable boot-start with an optional user=foo at the end to run as a certain user. It installs proper boot scripts for your OS so you don't need to worry about editing /etc/rc.* files:
+/opt/splunk/bin/splunk enable boot-start
+Install Required Splunkbase Apps:
+Open Firefox and browse to http://localhost:81 (or if you used an alternate port change accordingly). Change your password, then click App > Find More Apps from the menu in the upper right corner. Find the following apps and install them.  
+
+Install Splunk for OSSEC - Splunk v4 version
+Install Geo Location Lookup Script (powered by MAXMIND)
+Install Google MapsInstall Splunk Visualizations
+Install Sideview Utils
+Install Security Onion for Splunk
+
+Configure Bro IDS Inputs:
+Depending on how much traffic your sensor monitors, you may need to leave some of the Bro inputs disabled to avoid maxing out your license. The following are the sourcetypes configured for each Bro IDS log data input:
+
+bro_communication - Bro sensor communications  
+bro_conn - Connections  
+bro_dns - DNS requests  
+bro_dpd - Dynamic Protocol Detection  
+bro_ftp - FTP activity  
+bro_http - HTTP traffic  
+bro_irc - IRC activity  
+bro_known_certs - Certificates seen  
+bro_known_hosts - Hosts seen  
+bro_known_services - Services detected  
+bro_notice - You definitely want this one enabled  
+bro_smtp - SMTP activity  
+bro_smtp_entities - SMTP  
+bro_software - Software versions detected (incl. vulnerable versions)  
+bro_ssh - SSH activity  
+bro_ssl - SSL activity  
+bro_syslog - Syslog activity  
+bro_weird - Anomalous events
+
+Using Splunk for Security Onion:
+I've standardized the source and destination IP fields in the Bro IDS and Sguil log field extractions so ""src_ip"" and ""dest_ip"" are consistent across events.
+Log file data inputs are file specific (as opposed to monitoring the entire /nsm/bro/logs/current/ directory) primarily for granular control over what gets splunked. Depending on your licensing you may need to scale back certain logs and this provides an easy way to do so.
+SOstat Monitoring:
+The SOstat monitoring scripts are configured to run at various intervals (in seconds). The default settings are very conservative, 
+executing most scripts once a day and status scripts 3 times a day. The default configuration is:
+Sourcetype - Script - Interval (seconds)  
+
+sostat_disk - /opt/splunk/etc/apps/securityonion/bin/disk.sh - 86400  
+sostat_ifconfig - /opt/splunk/etc/apps/securityonion/bin/ifconfig.sh - 86400  
+sostat_nsm_log_archive - /opt/splunk/etc/apps/securityonion/bin/nsm_log_archive.sh - 86400  
+sostat_nsm_sensor_ps-status - /opt/splunk/etc/apps/securityonion/bin/nsm_sensor_ps-status.sh - 21600  
+sostat_nsm_server_ps-status - /opt/splunk/etc/apps/securityonion/bin/nsm_server_ps-status.sh - 21600  
+sostat_nsm_sguil_uncategorized - /opt/splunk/etc/apps/securityonion/bin/nsm_sguil_uncategorized.sh - 86400  
+sostat_top - /opt/splunk/etc/apps/securityonion/bin/top.sh - 21600
+
+The default settings can be modified via Splunk Manager > Data Inputs > Scripts. Click on the script name in the ""Command"" column to increase/decrease the interval. You can also disable/enable scripts.
+Comments or Questions:
+For comments, suggestions or questions, feel free to drop me an e-mail: brad@eyeis.net
+Hope you enjoy the app!
+Brad Shoop
+http://eyeis.net
+@bradshoop",Version 2.0,https://prod.cdn.apps.splunk.com/static/image/default_icon.png,"Security, Fraud & Compliance",http://creativecommons.org/licenses/by/3.0/,"6,216",0,splunk,5,9,Brad Shoop,https://splunkbase.splunk.com/apps/#/author/bshoop,"Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance
+App Type: App
+Platform: Linux
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Platform Independent
+Platform: Linux
+Platform: Linux
+Platform: Platform Independent
+Platform: Linux
+Platform: Linux
+Platform: Linux
+Platform: Linux
+Platform: Linux"
+https://splunkbase.splunk.com/app/5765,2022-01-08,10:15:55 PM,AWS Lambda,,"Jan. 8, 2022","This app integrates with AWS Lambda to perform lambda functions
+
+
+Supported Actions Version 2.2.6
+
+
+test connectivity: 
+Validate the asset configuration for connectivity using supplied configuration
+
+
+remove permission: 
+Revokes function-use permission from an AWS service or another account
+
+
+invoke lambda: 
+Invoke an AWS Lambda function
+
+
+list functions: 
+List available AWS Lambda functions, with the version-specific configuration for each
+
+
+add permission: 
+Grants an AWS service or another account permission to use a function
+
+
+
+
+Supported Actions Version 2.2.0
+
+
+test connectivity: 
+Validate the asset configuration for connectivity using supplied configuration
+
+
+remove permission: 
+Revokes function-use permission from an AWS service or another account
+
+
+invoke lambda: 
+Invoke an AWS Lambda function
+
+
+list functions: 
+List available AWS Lambda functions, with the version-specific configuration for each
+
+
+add permission: 
+Grants an AWS service or another account permission to use a function
+
+
+
+
+Supported Actions Version 2.1.0
+
+
+test connectivity: 
+Validate the asset configuration for connectivity using supplied configuration
+
+
+remove permission: 
+Revokes function-use permission from an AWS service or another account
+
+
+invoke lambda: 
+Invoke an AWS Lambda function
+
+
+list functions: 
+List available AWS Lambda functions, with the version-specific configuration for each
+
+
+add permission: 
+Grants an AWS service or another account permission to use a function",Version 2.2.6,https://prod.cdn.apps.splunk.com/media/public/icons/19f248a0-704d-11ec-a5da-7e9ee488d21e.svg,DevOps,https://www.apache.org/licenses/LICENSE-2.0,24,0,,0,0,,,"Products: Splunk SOAR Products: Splunk SOAR Products: Splunk SOAR
+Categories: DevOps
+App Type: Connector
+SOAR Versions: 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2"
+https://splunkbase.splunk.com/app/949,2022-01-08,10:15:56 PM,TA-SFDC,https://prod.cdn.apps.splunk.com/media/public/screenshots/6b5836d0-6900-11e3-b4de-005056ad5c72.png,"March 20, 2012",The SFDC TA allows you to pull changes from SalesForce as a stateful event stream and create lookups from those streams. The lookups can then be used to enrich other data inputs.  Please check the included README.txt file for configuration help.,Version 1.1,https://prod.cdn.apps.splunk.com/media/public/icons/6b576070-6900-11e3-b4de-005056ad5c72.png,"IT Operations, Business Analytics",http://creativecommons.org/licenses/by/3.0/,725,0,splunk,5,1,Paul Stout,https://splunkbase.splunk.com/apps/#/author/pstout,"Products: Splunk Enterprise
+Categories: IT Operations, Business Analytics
+App Type: Add-on
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/6251,2022-01-08,10:15:58 PM,Brett Adams Dangerous Admin Configuration Service,https://prod.cdn.apps.splunk.com/media/public/screenshots/fc861fc8-6393-11ec-b449-b6c607184346.png,"Jan. 6, 2022","A graphical user interface for the Splunk Cloud Admin Configuration Service, and Splunk REST API. Allows the manual comparison and modification of configuration between Cloud and Enterprise.This app is under active development and only certain features are enabled. Issues can be reported at https://github.com/Bre77/badacs/issues",Version 0.1.2,https://prod.cdn.apps.splunk.com/media/public/icons/c74a9c22-6f40-11ec-a673-cec0a894a9e3.png,Utilities,https://cdn.apps.splunk.com/static/misc/eula.html,12,0,splunk,0,0,Brett Adams,https://splunkbase.splunk.com/apps/#/author/s7orm,"Products: Splunk Enterprise Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud
+Categories: Utilities
+App Type: App
+This version of the app (0.1.2) is not available for Splunk Cloud. However, version 0.1.0 of this app is available for Splunk Cloud.
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/5775,2022-01-08,10:15:59 PM,Carbon Black Protection Bit9,,"Jan. 8, 2022","This app supports various investigative and containment actions on Carbon Black Enterprise Protection (formerly Bit9)
+
+
+Supported Actions Version 2.1.2
+
+
+test connectivity: 
+Validate the API Token by attempting to connect to the Device URL. This action runs a quick query on the device to check the connection and token
+
+
+hunt file: 
+Searches for a particular file across all the endpoints
+
+
+upload file: 
+Upload a file to a computer
+
+
+analyze file: 
+Analyze a file on a computer
+
+
+unblock hash: 
+Unblocks a particular hash
+
+
+block hash: 
+Ban the file hash
+
+
+get system info: 
+Get information about an endpoint
+
+
+
+
+Supported Actions Version 2.0.10
+
+
+test connectivity: 
+Validate the API Token by attempting to connect to the Device URL. This action runs a quick query on the device to check the connection and token
+
+
+hunt file: 
+Searches for a particular file across all the endpoints
+
+
+upload file: 
+Upload a file to a computer
+
+
+analyze file: 
+Analyze a file on a computer
+
+
+unblock hash: 
+Unblocks a particular hash
+
+
+block hash: 
+Ban the file hash
+
+
+get system info: 
+Get information about an endpoint",Version 2.1.2,https://prod.cdn.apps.splunk.com/media/public/icons/b1090a88-704f-11ec-b2ab-aac0f93bc215.svg,Endpoint,https://www.splunk.com/en_us/legal/splunk-general-terms.html,24,0,,0,0,,,"Products: Splunk SOAR Products: Splunk SOAR
+Categories: Endpoint
+App Type: Connector
+SOAR Versions: 4.10, 5.0, 5.1, 5.2
+SOAR Versions: 4.9, 4.10, 5.0, 5.1, 5.2"
+https://splunkbase.splunk.com/app/3814,2022-01-08,10:16:00 PM,AppDefense Splunk App,"https://prod.cdn.apps.splunk.com/media/public/screenshots/bf9a2172-dc51-11e7-9824-0a25cbc278b8.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/83d8b1d0-dc51-11e7-b977-0a25cbc278b8.png","Jan. 11, 2018","Requirements
+AppDefense 
+AppDefense App for Splunk 
+Installation
+AppDefense Splunk App Configuration Guide: 
+https://www.vmware.com/products/appdefense.html
+Follow the Splunk Configuration section in the Installation Guide to install and configure the App. 
+AppDefense Installation Guide could be downlaod from the AppDefense Manager Console. 
+Support
+appdefense_support appdefense_support@vmware.com",Version 1.1,https://prod.cdn.apps.splunk.com/media/public/icons/6aef765e-f727-11e7-88b6-02f13bdc2585.png,"Security, Fraud & Compliance",http://www.apache.org/licenses/LICENSE-2.0,199,0,splunk,5,2,Jaz Lin,https://splunkbase.splunk.com/apps/#/author/AppDefense,"Products: Splunk Enterprise, Splunk Cloud
+Categories: Security, Fraud & Compliance
+App Type: App
+Platform: Platform Independent
+CIM Versions: 4.x"
+https://splunkbase.splunk.com/app/3623,2022-01-08,10:16:02 PM,TA-sendcef,,"June 20, 2017","TA-sendcef
+TA-sendcef provides a custom Splunk search command, sendcef, for creating and sending CEF-formatted events over TCP or UDP. The underlying command uses the Splunk Custom Search Command protocol, version 2.
+The specification for CEF, Common Event Format, is available in PDF from McAfee.
+Supported Splunk Versions
+The sendcef custom command will only work with 6.4.x or higher versions of Splunk. Version 2 of the Splunk Custom Search Command protocol was introduced as a technology preview with Splunk 6.4.
+System Requirements
+The sendcef command is a binary application written in Go. The TA has binaries included for the following platforms:
+ * Darwin (OS X) 64-bit
+ * Linux 64-bit
+ * Windows 64-bit
+Installation
+Use normal Splunk installation procedures to install the TA. This includes installation through the Splunk UI or ""unzipping"" and copying to $SPLUNK_HOME/etc/apps. The application is a Splunk .spl file, which can be renamed to .tgz and decompressed.
+Released versions are available on GitHub: TA-sendcef
+Configuration
+Configuration of sendcef is made through a custom conf file, specifically sendcef.conf. This file must be available in $SPLUNK_HOME/etc/apps/TA-sendcef/local. The local directory will need to be created after installing the application.
+In the local directory, create the sendcef.conf file.
+Here is an example configuration file:
+[general]
+#logLevel = debug
+#timeout = 5s
+
+[ceftarget:tcp]
+server = your_server_ip:10522
+protocol = tcp
+
+[ceftarget:udp]
+server = your_server_ip:10523
+protocol = udp
+General Stanza
+The [general] stanza above is not required but it does include some commented configurations that can be used to modify the behavior of sendcef.
+Valid values for logLevel include debug, info, warn, and error. The default is warn. Most log messages are either debug or error.
+The default timeout is 10s (ten seconds). Valid, but not necessarily good, values are available from the Go time.ParseDuration function documentation.
+""Target"" Stanzas
+The ""target"" stanzas can be named anything. The examples append :tcp and :udp but a stanza could just as easily be [foobar].
+Within a target stanza, it's pretty basic. Name the stanza what you want. Then add a server value which includes a hostname or IP address followed by a port number (separated by a colon). For protocol, choose either tcp or udp.
+Usage
+sendcef is a custom Splunk search command, so it's usually appended to a Splunk search. Here's a full example of a search command using sendcef:
+index=_internal sourcetype=splunkd ERROR 
+| convert timeformat=""%m-%d-%Y %H:%M:%S.%3N"" ctime(_time) AS cef_time 
+| eval cef_host = host, 
+    cef_device_vendor = ""Vendor"", 
+    cef_device_product = ""Product"", 
+    cef_device_version = ""Version"", 
+    cef_event_class = ""Class"", 
+    cef_name = ""Name"", 
+    cef_severity = ""10"", 
+    cef_extension = ""message, source"" 
+| sendcef ceftarget:tcp
+The base search, index=_internal sourcetype=splunkd ERROR, is simple and should work on nearly any Splunk system. If the search returns either zero records or many thousands, you may want to refine it to a managable number for your initial testing.
+The next portion of the search sets up all of the CEF record format fields:
+| convert timeformat=""%m-%d-%Y %H:%M:%S.%3N"" ctime(_time) AS cef_time 
+| eval cef_host = host, 
+    cef_device_vendor = ""Vendor"", 
+    cef_device_product = ""Product"", 
+    cef_device_version = ""Version"", 
+    cef_event_class = ""Class"", 
+    cef_name = ""Name"", 
+    cef_severity = ""10"", 
+    cef_extension = ""message, source"" 
+These should become self-explanatory once we look at a sample output record.
+The final portion of the search, | sendcef ceftarget:tcp, is what calls the sendcef custom search command. A configured stanza name is the sole command argument.
+Here is an example record that would get sent to the target host and port over either TCP or UDP:
+06-05-2017 10:09:26.392 Tims-MBP CEF:0|Vendor|Product|Version|Class|Name|10|message=File too small to check seekcrc, probably truncated.  Will re-read entire file\='/Users/tim/opt/splunk-sendtest/var/log/splunk/django_error.log'. source=/Users/tim/opt/splunk-sendtest/var/log/splunk/splunkd.log
+In the search command, notice how full control of the event formatting is handled by using convert and eval to set key fields prior to calling sendcef. The full power of the Splunk Search Processing Language (SPL) is available to set these fields.
+sendcef uses these fields when processing:
+ * cef_time 
+ * cef_host
+ * cef_device_product
+ * cef_device_vendor
+ * cef_event_class
+ * cef_name
+ * cef_severity
+ * cef_extension
+This example hard-codes the CEF header fields but these values could just as easily be dynamic and based on the underlying Splunk event (using any SPL commands.)
+The cef_extension field is handled differently. cef_extension takes a comma-separated list of fields from the underlying Splunk event and formats these name/value pairs (with escapes where necessary) before appending them to the end of the CEF message. Notice in the example output message above how message and source are handled as CEF extension fields.
+Note: Don't rely on the order of these extension fields. sendcef randomizes the order of these extension fields in the output.
+sendcef can be used as an ad hoc search command but it will often be used to automate data integration with third-party servers using Splunk saved/scheduled searches.
+Note: The output of a command using sendcef will return the unformatted, original events to the browser as search results. A future version of sendcef may return the formatted CEF messages to the browser. Also, this custom command only asks Splunk for the cef_* fields and any fields within cef_extension. This could mean that additional extracted fields are not available in the search results.
+Testing
+To faciliate testing using a local Splunk instance, a related TA has been developed. TA-sendtest provides test target indexes, TCP and UDP Splunk inputs, and a sendcef.conf.sample similar to what was used in this documentation.
+Further information on this application is available on GitHub: TA-sendtest
+Troubleshooting
+sendcef logs events at: $SPLUNK_HOME/var/log/splunk/sendcef.log
+These events can be searched with Splunk using: index=_internal source=*sendcef.log
+Related Application
+A similar application has been developed for sending ""raw"" Splunk events to third-party servers. Further information on this application is available on both Splunk Base and GitHub.",Version 0.8.0,https://prod.cdn.apps.splunk.com/static/image/default_icon.png,Utilities,https://github.com/triddell/TA-sendcef/blob/master/LICENSE,144,0,splunk,0,0,Tim Riddell,https://splunkbase.splunk.com/apps/#/author/triddell,"Products: Splunk Enterprise
+Categories: Utilities
+App Type: Add-on
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/3994,2022-01-08,10:16:03 PM,SA-git,"https://prod.cdn.apps.splunk.com/media/public/screenshots/5b96b618-5479-11e8-97bd-064f6492029e.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/5846ad92-5479-11e8-9bd1-064f6492029e.png","May 10, 2018",git command for splunk,Version 0.1,https://prod.cdn.apps.splunk.com/media/public/icons/e515c446-5470-11e8-8752-02f13bdc2585.png,Utilities,https://cdn.apps.splunk.com/static/misc/eula.html,187,0,splunk,0,0,Dominique Vocat,https://splunkbase.splunk.com/apps/#/author/dominiquevocat,"Products: Splunk Enterprise
+Categories: Utilities
+App Type: Add-on
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/6271,2022-01-08,10:16:04 PM,SnipeIT Add-On for Splunk,,"Jan. 7, 2022",This SnipeIT Add-On for Splunk will interface with SnipeIT to lookup managed assets and users in an org.,Version 2.0.3,https://prod.cdn.apps.splunk.com/media/public/icons/0cd96bf6-6f55-11ec-b853-4a92cbcbefe8.png,"IT Operations, Security, Fraud & Compliance",https://cdn.apps.splunk.com/static/misc/eula.html,13,0,splunk,0,0,Amrutha Vasu,https://splunkbase.splunk.com/apps/#/author/amruthavasuokta,"Products: Splunk Enterprise Products: Splunk Enterprise, Splunk Cloud
+Categories: IT Operations, Security, Fraud & Compliance
+App Type: Add-on
+This version of the app (2.0.3) is not available for Splunk Cloud. However, version 2.0.1 of this app is available for Splunk Cloud.
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+Splunk Versions: 8.2
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/711,2022-01-08,10:16:06 PM,WikiApp,,"July 7, 2011","About
+This app is designed to monitor changes to www.wikipedia.org. There are plans to extend it to be able to monitor any instance of a MediaWiki and you can easily attempt to monitor any site you want right now, but that feature is untested.
+You can view charts and top lists for different users, change types, articles and more!
+Installation
+Download package from Splunkbase and untar it in your $SPLUNK_HOME/etc/apps folder. The app requires your $SPLUNK_HOME to be set correctly in the environment variables. Restart your Splunk instance and go to the Launcher or Manager and configure the app with the set up page.
+Supported platforms
+Any Unix system. Windows with some extra configurations.
+Configuration
+Use the set up page to configure the app and be sure to read the notes in there for what the different configurations actually do.
+To use the app on your Windows platform you will need to manually open the inputs.conf file in WikiApp/default and change the path to the input script to the correct windows file path.",Version 1.0,https://prod.cdn.apps.splunk.com/media/public/icons/6c4ff406-6900-11e3-b4de-005056ad5c72.png,Utilities,http://creativecommons.org/licenses/by/3.0/,351,0,splunk,0,0,Roger Strom,https://splunkbase.splunk.com/apps/#/author/rstrom,"Products: Splunk Enterprise
+Categories: Utilities
+App Type: App
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/3269,2022-01-08,10:16:07 PM,Onapsis Security Platform for SAP,,"Aug. 10, 2017","Presents the Compliance and Vulnerabilities found in SAP systems along with the attacks or indicators of attack against SAP systems identified by the Onapsis Security Platform (OSP). This provides a centralized repository of SAP information in Splunk, and provides dashboards, statistics and historical reports on an organization's SAP assets' security and compliance posture. SAP incidents and alarms generated by OSP are presented giving visibility on threats and attacks in near realtime.",Version 1.8,https://prod.cdn.apps.splunk.com/media/public/icons/b718b104-7dd2-11e7-a187-02f13bdc2585.png,"Security, Fraud & Compliance",https://cdn.apps.splunk.com/static/misc/eula.html,327,0,splunk,3,2,Alex Horan,https://splunkbase.splunk.com/apps/#/author/apagadizabal,"Products: Splunk Enterprise
+Categories: Security, Fraud & Compliance
+App Type: App
+Platform: Platform Independent"
+https://splunkbase.splunk.com/app/5893,2022-01-08,10:16:08 PM,DNS,,"Jan. 8, 2022","This app implements investigative actions that return DNS Records for the object queried
+
+
+Supported Actions Version 2.0.23
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+lookup domain: 
+Query DNS records for a Domain or Host Name
+
+
+lookup ip: 
+Query Reverse DNS records for an IP
+
+
+
+
+Supported Actions Version 2.0.22
+
+
+test connectivity: 
+Validate the asset configuration for connectivity
+
+
+lookup domain: 
+Query DNS records for a Domain or Host Name
+
+
+lookup ip: 
+Query Reverse DNS records for an IP",Version 2.0.23,https://prod.cdn.apps.splunk.com/media/public/icons/9fe985e0-704d-11ec-9bf3-5644055f29eb.svg,Information,https://www.splunk.com/en_us/legal/splunk-general-terms.html,23,0,,0,0,,,"Products: Splunk SOAR Products: Splunk SOAR
+Categories: Information
+App Type: Connector
+SOAR Versions: 5.0, 5.1, 5.2
+SOAR Versions: 4.8, 4.9, 4.10, 5.0, 5.1, 5.2"
+https://splunkbase.splunk.com/app/5688,2022-01-08,10:16:11 PM,Chargeback App for Splunk Cloud,"https://prod.cdn.apps.splunk.com/media/public/screenshots/fecba9a2-2265-11ec-ab97-56b18431ff88.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/c9b325e2-2265-11ec-811f-1e1dbff99c78.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/7d8ea3e4-2265-11ec-920f-ca63b49a53c7.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/76bd2180-2265-11ec-bde9-1ed84df0657e.png,https://prod.cdn.apps.splunk.com/media/public/screenshots/62d21518-2265-11ec-8ca5-f6b092447113.png","Jan. 6, 2022","Prerequisites
+IMPORTANT NOTES:
+1. Please try installing the App on your own instead of requesting it to be installed for a better experience.  Simply Browse for more Apps, search for chargeback and then click on Install next to the Chargeback App for Splunk Cloud.  You can refer to this guide: https://docs.splunk.com/Documentation/SplunkCloud/latest/Admin/SelfServiceAppInstall#Install_an_app
+2. Please add a new column to the chargeback_app_2_bunit_csv.csv lookup table and call it perc_ownership
+3. Please watch this video to learn how to configure the app on your own: https://drive.google.com/file/d/1LFRlkfEJFlCzyXiIUvjPSmL7uT0_T1ma
+Please install the following Apps on the same Cloud Search Head or Search Head Cluster you are intending to install and use the Chargeback App for Splunk Cloud:
+1. Lookup File Editor
+2. Splunk Machine Learning Toolkit
+Please note that you must install the Python for Scientific Computing Add-on before installing the Machine Learning Toolkit. Please download and install the appropriate version here:
+- Mac: https://splunkbase.splunk.com/app/2881/
+- Linux 64-bit: https://splunkbase.splunk.com/app/2882/
+- Windows 64-bit: https://splunkbase.splunk.com/app/2883/
+Install
+Install the App on either your Splunk Cloud Search Head Cluster or on any of your Splunk Cloud standalone Search Heads.  Please follow our guide here:
+Install apps on your Splunk Cloud Platform deployment
+Configuration
+You can watch this video if that helps: https://drive.google.com/file/d/1LFRlkfEJFlCzyXiIUvjPSmL7uT0_T1ma
+Once the App is installed and when opening it up for the first time the followin popup message appears: Click on the link to complete the app setup procedure if you haven't done that already.  This will take you to the App Setup and Configuration Dashboard from the dashboard click on the App Setup Screen.
+Enable the following Jobs by selecting Enable:
+I. Click to enable all Chargeback Jobs required for this App:
+
+chargeback_app_splunk_cloud_summary_tracker ""Chargeback App for Splunk Cloud Tracker Job Summary Index (Hourly)""
+chargeback_cloud_stack_info_csv_lookup_gen ""Splunk Cloud Search Heads CSV Lookup Gen Job (Daily)""
+chargeback_identities_custom_kv_store_lookup_gen ""Custom Identities Enrichments CSV Lookup Gen Job (Daily)""
+chargeback_summary_identities_kv_store_lookup_gen ""Chargeback Identities KV Store Gen Job From Summary Index (Daily)""
+
+II. Configure Chargeback Summary Job Weights and Summary Index:
+
+Adjust the chargeback_summary_index and enter in the Definition box an index name you would like to use to store the summary data generated by the above jobs .  It's recommended to use an index called chargeback_summary with a retention of at least 13 months but ideally 2 years.  Make sure this index was created before saving.
+
+After you are done enabling the Jobs above and configuring an index to use, click on the Save button at the bottom of the screen to complete the setup and then close the Setup Screen tab in your browser,
+Perform the following steps for the first time to get the necessary Chargeback Identity enrichments working:
+Step 1
+Run the Splunk Cloud Stack Search Head Info Job  for the first time and make sure the job produced data.  The job creates the chargeback_cloud_stack_info_csv_lookup Lookup Table used in later jobs to populate the label field to accurately store user information in later steps.
+Step 2
+From the App Navigation Menu select App Configuration and then Select App Setup.
+Under section 3 Chargeback App for Splunk Cloud Jobs click on the Chargeback Custom Identities Gen Job (Edit and customize this Job) to open the job for editing.
+Configure the Job to collect the following information about users in your organization that are using Splunk Cloud today or potentially may use it in the future:
+    1. user_name
+    2. name
+    3. type
+    4. title
+    5. email
+    6. biz_unit
+    7. biz_dep
+Step 3
+Click on the Chargeback Identities - Summary Index - Gen Job - From REST to collect all the users defined on the Search Head you are running this job on.
+This job must be configured on every Search Head in your stack including your Input Data Manager (IDM).
+Step 4
+Login to every Standalone Search Head and Search Head Cluster in your stack and create the following Job:
+Job Name: chargeback_rest_identities_summary_data_gen
+Job Schedule: Edit the Job and Schedule it with the following Cron Expression: 18 3 * * * 
+Job Search:
+| rest /servicesNS/-/-/authentication/users splunk_server=local timeout=0
+| rename title As user_name , realname As name roles As splunk_role_map type As auth_type
+| eval Splunk_Instance = lower(splunk_server), user_name = lower(trim(user_name)), email = lower(email)
+| stats Last(name) As name , Last(email) As email , Values(splunk_role_map) As splunk_role_map , Values(auth_type) As auth_type By Splunk_Instance, user_name
+| eval _time = now() | foreach splunk_role_map, auth_type [ eval <<FIELD>>=mvjoin(mvsort(mvdedup('<<FIELD>>')), ""|"") ]
+| table _time, Splunk_Instance, user_name, name, email, splunk_role_map, auth_type
+| collect index=chargeback_summary source=splunk_rest_identities_summary_data sourcetype=stash testmode=false | stats count
+
+Finish by running the Job for the first time on the Search Head or Search Head Cluster you configured it on.
+Step 5
+Go back to the App Setup Dashboard and click on the Chargeback Identities - KV Store - Gen Job - From Summary Index Job to create the chargeback_rest_identities_kv_store_lookup KV Store Lookup for the first time.
+Step 6
+Click on the Chargeback Tracker Job link and make sure the job produces data and runs without any errors.
+Usage
+After the App is configured,  you can begin using the various dashboards that ships with the App, here is a list of these dashboards:
+    1. Showback
+    2. Chargeback
+    3. Resource Usage
+    4. Search Activity
+    5. App Setup
+    6. Splunk Cloud Identities
+    7. App Troubleshooting
+App Terminology
+
+Splunk Cloud Virtual Core (SVC) is a unit of capabilities that includes these resources in Splunk Cloud: compute, memory, and I/O.
+Dynamic Data: Active Searchable(DDAS) is used for searching ingested data. DDAS is also commonly known as searchable storage or Local Storage including Splunk Cloud SmartStore.  For further information see: Dynamic Data: Data Retention Options in Splunk Cloud
+Dynamic Data: Active Archive(DDAA) is Splunk Cloud Index Archiving in AWS S3 Glacier.  Its an optional Splunk Cloud subscription.  DDAA offers a lower cost option for long term storage of your ingested data.  DDAA Can be restored to DDAS to be searched.
+Dynamic Data: Self-Storage(DDSS) is your own Index Archiving Self Storage AWS S3 Bucket.  It allows you to export your aged data from Splunk Cloud Platform. If you enable DDSS to export your aged ingested data, the oldest data is moved to your Amazon S3 or Google Cloud Storage account in the same region as your Splunk Cloud Platform deployment before it is deleted from the index.
+-- Please Note the following about DDSS:  You are responsible for payments for your use of Amazon S3 or Google Cloud Storage. Aged data is exported unencrypted to your Amazon S3 or Google Cloud Storage account.  For further information see:
+Dynamic Data: Self-Storage - Compliance, Cloud and Data Lifecycle and Splunk Cloud Platform Service Description
+
+Known Issues
+There are no known issues currently.
+Upgrade
+No special instructions for upgrading this app to a newer version.
+Contributors
+
+Jim Donn - Platfom Strategist - Cloud
+Hutch Hutchinson - Sr Solutions Engineer",Version 1.0.90,https://prod.cdn.apps.splunk.com/media/public/icons/859e4502-6f0f-11ec-a50b-22ea93ff7fdb.png,"IT Operations, Business Analytics",https://www.splunk.com/en_us/legal/splunk-general-terms.html,504,0,splunk,5,1,Splunk Works,https://splunkbase.splunk.com/apps/#/author/splunklabs,"Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud Products: Splunk Enterprise, Splunk Cloud
+Categories: IT Operations, Business Analytics
+App Type: App
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 4.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 4.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 4.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 4.x
+Splunk Versions: 8.1, 8.2
+Platform: Platform Independent
+CIM Versions: 4.x"

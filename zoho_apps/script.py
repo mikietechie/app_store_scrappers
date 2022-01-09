@@ -15,9 +15,9 @@ from selenium.webdriver.support.expected_conditions import presence_of_element_l
 driver_path = os.environ['CHROME_WEB_DRIVER']
 local = True
 chrome_options = Options()
-#chrome_options.add_argument('--no-sandbox')
-#chrome_options.add_argument('--headless')
-#chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
 
 
 def scape_app_data(soup: bs4.BeautifulSoup):
@@ -63,38 +63,41 @@ def scape_app_data(soup: bs4.BeautifulSoup):
 def main():
     try:
         driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
-        wait = WebDriverWait(driver, timeout=300)
+        wait = WebDriverWait(driver, timeout=20)
         # get category links
         url = "https://marketplace.zoho.com/home"
         driver.get(url)
         wait.until(presence_of_element_located((By.CSS_SELECTOR, "a.btn.btn-viewAll")))
         driver.implicitly_wait(10)
         category_links = [
-            f'https://marketplace.zoho.com/{a.get_attribute("href")}' for a in driver.find_elements_by_css_selector("a.btn.btn-viewAll")
+            f'{a.get_attribute("href")}' for a in driver.find_elements_by_css_selector("a.btn.btn-viewAll")
         ]
         # done with category links
         all_apps_links = []
         for category_link in category_links:
             driver.get(category_link)
-            wait.until(presence_of_element_located((By.CSS_SELECTOR, "a.btn.btn-viewAll")))
+            wait.until(presence_of_element_located((By.CSS_SELECTOR, "a.extn-redirection-block")))
             while True:
                 try:
-                    wait.until(presence_of_element_located((By.CSS_SELECTOR, "a.btn.btn-viewAll")))
-                    more_button = driver.find_element_by_css_selector("a.btn.btn-viewAll")
+                    wait.until(presence_of_element_located((By.CSS_SELECTOR, "a.btn.btn-viewMore")))
+                    more_button = driver.find_element_by_css_selector("a.btn.btn-viewMore")
                     more_button.click()
                 except: break
-            all_apps_links.extend([f'https://marketplace.zoho.com{a.get_attribute("href")}' for a in driver.find_elements_by_css_selector("a.extn-redirection-block")])
+            all_apps_links.extend([f'{a.get_attribute("href")}' for a in driver.find_elements_by_css_selector("a.extn-redirection-block")])
         all_apps_links = list(set(all_apps_links))
         all_apps_data = []
-        for app_link in all_apps_links:
+        wait = WebDriverWait(driver, timeout=10)
+        for link in all_apps_links:
             try:
                 driver.get(link)
-                wait.until(presence_of_element_located((By.CSS_SELECTOR, "span.extn-content.inline-middle")))
+                try:
+                    wait.until(presence_of_element_located((By.CSS_SELECTOR, "span.extn-content.inline-middle")))
+                except: pass
                 driver.implicitly_wait(2)
                 data = scape_app_data(bs4.BeautifulSoup(driver.page_source, features="html.parser"))
                 data["url"] = driver.current_url
-            except Exception as e:
-                raise e
+                all_apps_data.append(data)
+            except:
                 print("Exception:\t", str(e))
         driver.close()
         with open("apps.csv", "w", encoding="utf-8") as file:
