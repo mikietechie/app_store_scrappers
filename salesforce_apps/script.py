@@ -15,9 +15,9 @@ from selenium.webdriver.support.expected_conditions import presence_of_element_l
 driver_path = os.environ['CHROME_WEB_DRIVER']
 local = True
 chrome_options = Options()
-#chrome_options.add_argument('--no-sandbox')
-#chrome_options.add_argument('--headless')
-#chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
 
 
 def scape_app_data(soup: bs4.BeautifulSoup, url=None, logo=None):
@@ -121,8 +121,8 @@ def main():
                 wait.until(presence_of_element_located((By.CSS_SELECTOR, "a.appx-tile.appx-tile-app.tile-link-click")))
                 while True:
                     try:
-                        wait.until(presence_of_element_located((By.ID, "appx-load-more-button-id")))
-                        more_button = driver.find_element_by_id("appx-load-more-button-id")
+                        wait.until(presence_of_element_located((By.CSS_SELECTOR, "button#appx-load-more-button-id")))
+                        more_button = driver.find_element_by_css_selector("button#appx-load-more-button-id")
                         more_button.click()
                     except:
                         break
@@ -130,7 +130,7 @@ def main():
                     all_app_links.append(link.get_attribute("href"))
             except Exception as e:
                 print("Exception:\t", str(e))
-        all_app_links = list(set(all))
+        all_app_links = list(set(all_app_links))
         all_apps_data = []
         for i, link in enumerate(all_app_links):
             try:

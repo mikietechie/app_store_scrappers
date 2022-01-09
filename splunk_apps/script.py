@@ -63,7 +63,7 @@ def scape_app_data(soup: bs4.BeautifulSoup, url=None):
 def main():
     try:
         driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
-        wait = WebDriverWait(driver, timeout=30)
+        wait = WebDriverWait(driver, timeout=10)
         # get category links
         all_app_links = []
         for url in ["https://splunkbase.splunk.com/archive/apps/#/order/popular/product/all", "https://splunkbase.splunk.com/apps/#/product/all"]:
@@ -83,15 +83,15 @@ def main():
         all_apps_data = []
         wait = WebDriverWait(driver, timeout=10)
         all_app_links = list(set(all_app_links))
-        for link in all_app_links:
+        for i, link in enumerate(all_app_links):
             try:
                 driver.get(link)
                 try:
                     wait.until(presence_of_element_located((By.CSS_SELECTOR, "#release-notes-version")))
-                except:
-                    wait.until(presence_of_element_located((By.CSS_SELECTOR, "#overview")))
+                except: pass
                 page_soup = bs4.BeautifulSoup(driver.page_source, features="html.parser")
                 all_apps_data.append(scape_app_data(page_soup, link))
+                print(f"now at {i}!")
                 #break # to be removed
             except Exception as e:
                 print("Exception:\t", str(e))
@@ -104,6 +104,7 @@ def main():
         print("!!! Done With The Job !!!")
     except Exception as e:
         if isinstance(e, KeyboardInterrupt):
+            print(all_app_links)
             driver.close()
             exit()
         raise e
