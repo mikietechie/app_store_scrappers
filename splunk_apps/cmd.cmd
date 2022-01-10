@@ -1,0 +1,1 @@
+script.py apps_1 & script.py apps_2 & script.py apps_3 & script.py apps_4 & script.py apps_5 

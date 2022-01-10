@@ -5,7 +5,7 @@ Python JavaScript engineer
 !actively looking for a job!
 """
 
-import bs4, os, csv, datetime, re
+import bs4, os, csv, datetime, re, sys
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -61,9 +61,12 @@ def scape_app_data(soup: bs4.BeautifulSoup, url=None):
 
 
 def main():
+    apps_files = ["apps_1", "apps_2", "apps_3", "apps_4", "apps_5"]
+    """
     try:
         driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
         wait = WebDriverWait(driver, timeout=10)
+        '''
         # get category links
         all_app_links = []
         for url in ["https://splunkbase.splunk.com/archive/apps/#/order/popular/product/all", "https://splunkbase.splunk.com/apps/#/product/all"]:
@@ -76,14 +79,27 @@ def main():
                     wait.until(presence_of_element_located((By.ID, "loadmore")))
                     # more_button = driver.find_element_by_id("loadmore")
                     # more_button.click()
+                    print(i)
                     driver.execute_script("document.querySelector('#loadmore').click()")
                 except:
                     break
             all_app_links.extend([f"https://splunkbase.splunk.com{link['href']}" for link in bs4.BeautifulSoup(driver.page_source, features="html.parser").select("sb-app-card-v2-1 a")])
-        all_apps_data = []
-        wait = WebDriverWait(driver, timeout=10)
+        
         all_app_links = list(set(all_app_links))
-        for i, link in enumerate(all_app_links):
+        with open("links.csv", "w") as f:
+            f.write("\n".join(all_app_links))
+        driver.close()
+        exit()
+        '''
+        with open("links.csv") as f:
+            all_app_links = f.read().split("\n")
+        
+        link_sections = [all_app_links[:500], all_app_links[500:1000], all_app_links[1000:1500], all_app_links[1500:2000], all_app_links[2000:]]
+        section_map = dict(zip(apps_files, link_sections))
+        all_apps_data = []
+        links, fp = section_map.get(sys.argv[1]), sys.argv[1]+".csv"
+        for i, link in enumerate(links):
+            print(link)
             try:
                 driver.get(link)
                 try:
@@ -96,7 +112,7 @@ def main():
             except Exception as e:
                 print("Exception:\t", str(e))
         driver.close()
-        with open("apps.csv", "w", encoding="utf-8") as file:
+        with open(fp, "w", encoding="utf-8") as file:
             csv_writer = csv.DictWriter(file, list(all_apps_data[0].keys()))
             csv_writer.writeheader()
             for app in all_apps_data:
@@ -108,6 +124,9 @@ def main():
             driver.close()
             exit()
         raise e
+    """
+    import pandas
+    pandas.concat([pandas.read_csv(f"{fp}.csv") for fp in apps_files], ignore_index=True, sort=False).to_csv("apps.csv")
 
 
 if __name__ == "__main__":

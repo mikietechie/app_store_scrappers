@@ -76,17 +76,12 @@ def scape_app_data(soup: bs4.BeautifulSoup, url):
 
 def main():
     try:
-        print("two")
         url = "https://quickbooks.intuit.com/app/apps/home/"
-        driver=webdriver.Chrome(
-            executable_path = driver_path,
-            options=chrome_options
-        )
-        wait = WebDriverWait(driver, timeout=600)
+        driver=webdriver.Chrome(executable_path = driver_path, options=chrome_options)
+        wait = WebDriverWait(driver, timeout=10)
         driver.get(url)
         wait.until(presence_of_element_located((By.CLASS_NAME, "appcard-wrapper-home-browse")))
-        html = driver.page_source
-        soup = bs4.BeautifulSoup(html, features="html.parser")
+        soup = bs4.BeautifulSoup(driver.page_source, features="html.parser")
         sidebar = soup.find("div", class_="split-layout-sidebar")
         categories = sidebar.find_all("div", class_="collection-container")[-1]
         category_links = [f"https://quickbooks.intuit.com{category_link['href']}" for category_link in categories.find_all("a", class_="item collection")]
@@ -97,15 +92,14 @@ def main():
             wait.until(presence_of_element_located((By.CLASS_NAME, "appcard-wrapper-home-browse")))
             button = driver.find_element_by_css_selector("button.view-all-link")
             try:
+                wait.until(presence_of_element_located((By.CSS_SELECTOR, "button.view-all-link")))
                 button = driver.find_element_by_css_selector("button.view-all-link")
                 button.click()
-                driver.implicitly_wait(0.5)
             except: print("click error")
-                
             page_soup = bs4.BeautifulSoup(driver.page_source, features="html.parser")
             for url in [f"https://quickbooks.intuit.com{app_card['href']}" for app_card in page_soup.find_all("a", class_="appcard-wrapper-home-browse")]:
-                if url not in all_app_links:
-                    all_app_links.append(url)
+                all_app_links.append(url)
+        all_app_links = list(set(all_app_links))
         all_apps_data = []
         for link in all_app_links:
             try:
